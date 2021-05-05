@@ -8,14 +8,15 @@ namespace ContactsApp1
 {
     public class PhoneNumber
     {
-        private int _phoneNumber;
+        private string _phoneNumber;
 
         public string NumberPhone
         {
             get { return _phoneNumber; }
             set
             {
-
+                Validator.ValidtationPhoneNumber(value);
+                    _phoneNumber = value;
             }
         }
     }
