@@ -6,45 +6,21 @@ using System.Threading.Tasks;
 
 namespace ContactsApp1
 {
-    /// <summary>
-    /// Реазилуются проверки значений переменных на вход
-    /// </summary>
     public static class Validator
     {
-        /// <summary>
-        /// Метод для проверки введеных значений в PhoneNumber
-        /// </summary>
-        /// <param name="numberPhone"> Вводимый номер телефона </param>
-        public static void ValidtationPhoneNumber(string numberPhone)
+        public static void ContactValidator(string value)
         {
-            foreach (var value in numberPhone)
+            if (string.IsNullOrEmpty(value))
             {
-                if (!char.IsDigit(value))
-                {
-                    throw new ArgumentException("Номер должен состоять из цифр");
-                }
+                throw new ArgumentException("Вы ввели пустую строку.");
             }
 
-            int count = 0;
-            foreach (var value in numberPhone)
+            if (value.Length > 50)
             {
-                count++;
+                throw new ArgumentException("Длина имени, фамилии и e-mail" +
+                                            " должно быть меньше 50 символов.");
             }
-
-            if (count > 11 || count < 11)
-            {
-                throw new ArgumentException("Номер телефона должен быть ровно из 11 цифр");
-            }
-
-            if (numberPhone[0] != '7')
-            {
-                throw new ArgumentException("Номер телефона должен начинаться с 7");
-            }
-        }
-
-        public static void ValidationName(string name)
-        {
-
         }
     }
 }
+
