@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp1
 {
-    class Contact:PhoneNumber
+    public class Contact:PhoneNumber
     {
         private string _surename;
         private string _name;
@@ -71,7 +71,7 @@ namespace ContactsApp1
             }
         }
 
-        public string IdVk
+        public string IdVkontake
         {
             get { return _idVkontakte; }
 
@@ -92,14 +92,14 @@ namespace ContactsApp1
         }
 
         public Contact(string surename, string name, string phoneNumber,
-            DateTime dateOfBirth, string email, string idVk)
+            DateTime dateOfBirth, string email, string idVkontake)
         {
             Surename = surename;
             Name = name;
             NumberPhone = phoneNumber;
             DateOfBirth = dateOfBirth;
             Email = email;
-            IdVk = idVk;
+            IdVkontake = idVkontake;
         }
     }
 }
