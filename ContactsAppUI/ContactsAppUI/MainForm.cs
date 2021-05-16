@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContactsApp1;
+using System.IO;
 
 namespace ContactsAppUI
 {
@@ -16,6 +17,16 @@ namespace ContactsAppUI
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+        
+        private void label1_Click(object sender, EventArgs e)
+        {
+            label1.Text = ProjectManager.LoadFile().Email;
         }
     }
 }

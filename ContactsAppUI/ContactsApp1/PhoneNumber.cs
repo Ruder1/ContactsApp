@@ -9,7 +9,9 @@ namespace ContactsApp1
     public class PhoneNumber
     {
         private string _phoneNumber;
-
+        /// <summary>
+        /// Присваивает номер телефона
+        /// </summary>
         public string NumberPhone
         {
             get { return _phoneNumber; }

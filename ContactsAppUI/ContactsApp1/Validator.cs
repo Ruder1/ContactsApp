@@ -8,6 +8,10 @@ namespace ContactsApp1
 {
     public static class Validator
     {
+       /// <summary>
+       /// Проверка записи строк
+       /// </summary>
+       /// <param name="value"></param>
         public static void ContactValidator(string value)
         {
             if (string.IsNullOrEmpty(value))

@@ -8,25 +8,29 @@ namespace ContactsApp1
 {
     public class Contact:PhoneNumber
     {
-        private string _surename;
+        private string _surname;
         private string _name;
         private string _email;
         private PhoneNumber _phoneNumber;
         private string _idVkontakte;
         private DateTime _birthDate;
-
-        public string Surename
+            /// <summary>
+            /// Чтение и запись Фамилии
+            /// </summary>
+        public string Surname
         {
-            get { return _surename; }
+            get { return _surname; }
 
             set
             {
                 Validator.ContactValidator(value);
                 value = char.ToUpper(value[0]) + value.Substring(1);
-                _surename = value;
+                _surname = value;
             }
         }
-
+            /// <summary>
+            /// Чтение и запись Имени
+            /// </summary>
         public string Name
         {
             get { return _name; }
@@ -38,7 +42,9 @@ namespace ContactsApp1
                 _name = value;
             }
         }
-
+        /// <summary>
+        ///  Чтение и запись Дня рождения
+        /// </summary>
         public DateTime DateOfBirth
         {
             get
@@ -49,17 +55,20 @@ namespace ContactsApp1
             set
             {
                 var date1 = new DateTime(1900, 01, 01);
-                if (value > DateTime.Today || value < date1)
+                if (value > DateTime.Now || value < date1)
                 {
                     throw new ArgumentException(
                         $"Дата рождения не должна быть раньше 01.01.1900 и позже " +
-                        $"сегодня: -{DateTime.Today}");
+                        $"сегодня: -{DateTime.Now}");
                 }
 
                 _birthDate = value;
             }
         }
 
+        /// <summary>
+        /// Чтение и запись Email
+        /// </summary>
         public string Email
         {
             get { return _email; }
@@ -70,7 +79,9 @@ namespace ContactsApp1
                 _email = value;
             }
         }
-
+        /// <summary>
+        /// Чтение и запись IdVk
+        /// </summary>
         public string IdVkontake
         {
             get { return _idVkontakte; }
@@ -90,11 +101,19 @@ namespace ContactsApp1
                 _idVkontakte = value;
             }
         }
-
-        public Contact(string surename, string name, string phoneNumber,
+        /// <summary>
+        /// Конуструктор для класса Contact
+        /// </summary>
+        /// <param name="surname"></param>
+        /// <param name="name"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="dateOfBirth"></param>
+        /// <param name="email"></param>
+        /// <param name="idVkontake"></param>
+        public Contact(string surname, string name, string phoneNumber,
             DateTime dateOfBirth, string email, string idVkontake)
         {
-            Surename = surename;
+            Surname = surname;
             Name = name;
             NumberPhone = phoneNumber;
             DateOfBirth = dateOfBirth;
