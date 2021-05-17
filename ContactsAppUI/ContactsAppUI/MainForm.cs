@@ -26,7 +26,10 @@ namespace ContactsAppUI
         
         private void label1_Click(object sender, EventArgs e)
         {
-            label1.Text = ProjectManager.LoadFile().Email;
+            
+            Contact contact1 = ProjectManager.LoadFile();
+
+            label1.Text = contact1.Email;
         }
     }
 }

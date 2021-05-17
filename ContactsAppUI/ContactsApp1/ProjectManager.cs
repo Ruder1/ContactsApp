@@ -38,7 +38,8 @@ namespace ContactsApp1
             using (StreamReader streamReader = new StreamReader(FilePath))
             using (JsonReader reader = new JsonTextReader(streamReader))
             {
-                contact = serializer.Deserialize<Contact>(reader);
+                contact = (Contact)serializer.Deserialize<Contact>(reader);
+
             }
 
             return contact;

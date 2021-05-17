@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ContactsApp1
 {
-    public class Contact:PhoneNumber
+    public class Contact:ICloneable
     {
         private string _surname;
         private string _name;
-        private string _email;
+        private string _email; 
         private PhoneNumber _phoneNumber;
         private string _idVkontakte;
         private DateTime _birthDate;
@@ -66,6 +66,9 @@ namespace ContactsApp1
             }
         }
 
+
+        public long Phone { get; set; }
+
         /// <summary>
         /// Чтение и запись Email
         /// </summary>
@@ -101,6 +104,7 @@ namespace ContactsApp1
                 _idVkontakte = value;
             }
         }
+
         /// <summary>
         /// Конуструктор для класса Contact
         /// </summary>
@@ -110,15 +114,21 @@ namespace ContactsApp1
         /// <param name="dateOfBirth"></param>
         /// <param name="email"></param>
         /// <param name="idVkontake"></param>
-        public Contact(string surname, string name, string phoneNumber,
+        public Contact(string surname, string name, long phoneNumber,
             DateTime dateOfBirth, string email, string idVkontake)
         {
-            Surname = surname;
-            Name = name;
-            NumberPhone = phoneNumber;
-            DateOfBirth = dateOfBirth;
-            Email = email;
-            IdVkontake = idVkontake;
+            this.Surname = surname;
+            this.Name = name;
+            
+            this.DateOfBirth = dateOfBirth;
+            this.Email = email;
+            this.IdVkontake = idVkontake;
+            PhoneNumber.Number = phoneNumber;
+            this.Phone = PhoneNumber.Number;
+        }
+        public object Clone()
+        {
+            return new Contact(Surname, Name, PhoneNumber.Number, DateOfBirth, Email, IdVkontake);
         }
     }
 }
