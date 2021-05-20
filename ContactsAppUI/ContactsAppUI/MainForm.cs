@@ -23,13 +23,17 @@ namespace ContactsAppUI
         {
             Environment.Exit(0);
         }
-        
-        private void label1_Click(object sender, EventArgs e)
+
+        private void Contact_Click(object sender, EventArgs e)
         {
-            
             Contact contact1 = ProjectManager.LoadFile();
 
-            label1.Text = contact1.PhoneNumber.NumberPhone;
+            SurnameLabel.Text += contact1.Surname;
+            NameLabel.Text += contact1.Name;
+            BirthLabel.Text += contact1.DateOfBirth.ToShortDateString();
+            EmailLabel.Text += contact1.Email;
+            IdVkLabel.Text += contact1.IdVkontake;
+            PhoneLabel.Text += contact1.PhoneNumber.NumberPhone;
         }
     }
 }
