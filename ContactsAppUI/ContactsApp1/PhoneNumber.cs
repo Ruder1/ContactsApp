@@ -8,9 +8,6 @@ namespace ContactsApp1
 {
     public class PhoneNumber
     {
-        /// <summary>
-        /// Присваивает номер телефона
-        /// </summary>
         private string _phoneNumber;
         /// <summary>
         /// Присваивает номер телефона

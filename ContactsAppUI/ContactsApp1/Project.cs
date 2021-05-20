@@ -10,7 +10,7 @@ namespace ContactsApp1
     {
         private List<Contact> _contactLists;
         /// <summary>
-        /// Список контактов
+        /// Список контактов запись и чтение
         /// </summary>
         public List<Contact> ContactLists
         {

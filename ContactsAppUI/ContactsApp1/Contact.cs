@@ -105,12 +105,12 @@ namespace ContactsApp1
         /// <summary>
         /// Конуструктор для класса Contact
         /// </summary>
-        /// <param name="surname"></param>
-        /// <param name="name"></param>
-        /// <param name="phoneNumber"></param>
-        /// <param name="dateOfBirth"></param>
-        /// <param name="email"></param>
-        /// <param name="idVkontake"></param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="name">Имя</param>
+        /// <param name="phoneNumber">Номер телефона</param>
+        /// <param name="dateOfBirth">Дата рождения</param>
+        /// <param name="email">Эл Почта</param>
+        /// <param name="idVkontake">ID Вконтакте</param>
         public Contact(string surname, string name, string phoneNumber,
             DateTime birthday, string email, string idVk)
         {
@@ -127,6 +127,10 @@ namespace ContactsApp1
         public Contact()
         {
         }
+        /// <summary>
+        /// Клонирование объекта контакт
+        /// </summary>
+        /// <returns></returns>
         public object Clone()
         {
             return new Contact(Surname, Name, PhoneNumber.NumberPhone, DateOfBirth, Email, IdVkontake);
