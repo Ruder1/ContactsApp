@@ -8,25 +8,39 @@ namespace ContactsApp1
 {
     public class PhoneNumber
     {
-        private static long _phoneNumber;
         /// <summary>
         /// Присваивает номер телефона
         /// </summary>
-        public static long Number
+        private string _phoneNumber;
+        /// <summary>
+        /// Присваивает номер телефона
+        /// </summary>
+        public string NumberPhone
         {
             get { return _phoneNumber; }
 
             set
             {
 
-                if ((value >= 70000000000 && value <= 79999999999))
+                foreach (var var in value)
                 {
-                    _phoneNumber = value;
+
+                    if (!char.IsDigit(var))
+                    {
+                        throw new ArgumentException("Строка должна содержать только цифры");
+                    }
                 }
-                else
+
+                if (value.Length != 11)
                 {
-                    throw new ArgumentException("Номер должен содержать 11 цифр, первая цифра должна быть 7");
+                    throw new ArgumentException("Номер должен состоять ровно из 11 цифр");
                 }
+
+                if (value[0] != '7')
+                {
+                    throw new ArgumentException("Код страны должен равнятся 7");
+                }
+                _phoneNumber = value;
             }
         }
 

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContactsApp1;
 using System.IO;
+using System.Runtime.CompilerServices;
 
 namespace ContactsAppUI
 {
@@ -16,7 +17,7 @@ namespace ContactsAppUI
         [STAThread]
         static void Main()
         {
-            Contact contact = new Contact("Pogorelov", "Sam", phoneNumber: 79516193318,
+            Contact contact = new Contact("Pogorelov", "Sam","79516193318",
                 new DateTime(2000, 10, 15), "cpc15@mail.ru", "ruder_s");
             ProjectManager.SaveToFile(contact);
 

@@ -29,7 +29,7 @@ namespace ContactsAppUI
             
             Contact contact1 = ProjectManager.LoadFile();
 
-            label1.Text = contact1.Email;
+            label1.Text = contact1.PhoneNumber.NumberPhone;
         }
     }
 }

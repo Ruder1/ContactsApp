@@ -10,8 +10,7 @@ namespace ContactsApp1
     {
         private string _surname;
         private string _name;
-        private string _email; 
-        private PhoneNumber _phoneNumber;
+        private string _email;
         private string _idVkontakte;
         private DateTime _birthDate;
             /// <summary>
@@ -67,8 +66,6 @@ namespace ContactsApp1
         }
 
 
-        public long Phone { get; set; }
-
         /// <summary>
         /// Чтение и запись Email
         /// </summary>
@@ -114,21 +111,25 @@ namespace ContactsApp1
         /// <param name="dateOfBirth"></param>
         /// <param name="email"></param>
         /// <param name="idVkontake"></param>
-        public Contact(string surname, string name, long phoneNumber,
-            DateTime dateOfBirth, string email, string idVkontake)
+        public Contact(string surname, string name, string phoneNumber,
+            DateTime birthday, string email, string idVk)
         {
-            this.Surname = surname;
-            this.Name = name;
-            
-            this.DateOfBirth = dateOfBirth;
-            this.Email = email;
-            this.IdVkontake = idVkontake;
-            PhoneNumber.Number = phoneNumber;
-            this.Phone = PhoneNumber.Number;
+            Surname = surname;
+            Name = name;
+            PhoneNumber.NumberPhone= phoneNumber;
+            DateOfBirth = birthday;
+            Email = email;
+            IdVkontake = idVk;
+        }
+
+        public PhoneNumber PhoneNumber = new PhoneNumber();
+
+        public Contact()
+        {
         }
         public object Clone()
         {
-            return new Contact(Surname, Name, PhoneNumber.Number, DateOfBirth, Email, IdVkontake);
+            return new Contact(Surname, Name, PhoneNumber.NumberPhone, DateOfBirth, Email, IdVkontake);
         }
     }
 }
