@@ -121,7 +121,9 @@ namespace ContactsApp1
             Email = email;
             IdVkontake = idVk;
         }
-
+        /// <summary>
+        /// Чтение и запись номера телефона
+        /// </summary>
         public PhoneNumber PhoneNumber = new PhoneNumber();
 
         public Contact()
