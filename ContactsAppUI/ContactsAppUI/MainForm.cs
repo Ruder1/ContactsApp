@@ -24,18 +24,9 @@ namespace ContactsAppUI
             InitializeComponent();
         }
 
-
         private void AddButton_Click(object sender, EventArgs e)
         {
-            var contactForm = new ContactsForm();
-            contactForm.ShowDialog();
-            if (contactForm.DialogResult == DialogResult.OK)
-            {
-                var newContact = contactForm.Contact;
-                _project.ContactLists.Add(newContact);
-                ContactsListBox.Items.Add(newContact.Name);
-            }
-            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+            AddContact();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -46,15 +37,7 @@ namespace ContactsAppUI
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            var selectedIndex = ContactsListBox.SelectedIndex;
-            if (selectedIndex == -1)
-            {
-                return;
-            }
-            ContactsListBox.Items.RemoveAt(selectedIndex);
-            _project.ContactLists.RemoveAt(selectedIndex);
-            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
-            //TODO: Сохранение
+            RemoveContact();
         }
 
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,7 +59,19 @@ namespace ContactsAppUI
 
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            ContactsListBox.Items.Clear();
+            foreach (var contact in _project.ContactLists)
+            {
+                if (FindTextBox.Text == contact.Name)
+                {
+                    ContactsListBox.Items.Add(contact.Name);
+                }
+                else if (FindTextBox.Text == "")
+                {
+                    ContactsListBox.Items.Add(contact.Name);
+                }
+            }
+           
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,17 +82,17 @@ namespace ContactsAppUI
 
         private void AddContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AddContact();
         }
 
         private void EditContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            EditContact();
         }
 
         private void RemoveContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            RemoveContact();
         }
 
         private void AboutToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -113,26 +108,7 @@ namespace ContactsAppUI
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            var selectedIndex = ContactsListBox.SelectedIndex;
-            if (selectedIndex == -1)
-            {
-                return;
-            }
-
-            var selectedData = _project.ContactLists[selectedIndex];
-
-            var editContact = new ContactsForm {Contact = selectedData};
-            editContact.ShowDialog();
-            if (editContact.DialogResult == DialogResult.OK)
-            {
-                var updatedContact = editContact.Contact;
-                ContactsListBox.Items.RemoveAt(selectedIndex);
-                _project.ContactLists.RemoveAt(selectedIndex);
-                _project.ContactLists.Insert(selectedIndex,updatedContact);
-                ContactsListBox.Items.Insert(selectedIndex,updatedContact.Name);
-            }
-            ProjectManager.SaveToFile(_project,ProjectManager.DefaultPath);
-            //TODO: Сохранение
+            EditContact();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -144,8 +120,69 @@ namespace ContactsAppUI
             {
                 ContactsListBox.Items.Add(contact.Name);
             }
-            //TODO: Load
-            //_project = ProjectManager.LoadFile(ProjectManager.DefaultPath);
+        }
+
+        private void EditContact()
+        {
+            var selectedIndex = ContactsListBox.SelectedIndex;
+            if (selectedIndex == -1)
+            {
+                return;
+            }
+
+            var selectedData = _project.ContactLists[selectedIndex];
+
+            var editContact = new ContactsForm { Contact = selectedData };
+            editContact.ShowDialog();
+            if (editContact.DialogResult == DialogResult.OK)
+            {
+                var updatedContact = editContact.Contact;
+                ContactsListBox.Items.RemoveAt(selectedIndex);
+                _project.ContactLists.RemoveAt(selectedIndex);
+                _project.ContactLists.Insert(selectedIndex, updatedContact);
+                ContactsListBox.Items.Insert(selectedIndex, updatedContact.Name);
+                ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+            }
+        }
+        private void AddContact()
+        {
+            var contactForm = new ContactsForm();
+            contactForm.ShowDialog();
+            if (contactForm.DialogResult == DialogResult.OK)
+            {
+                var newContact = contactForm.Contact;
+                _project.ContactLists.Add(newContact);
+                ContactsListBox.Items.Add(newContact.Name);
+            }
+            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+        }
+
+        private void RemoveContact()
+        {
+            var selectedIndex = ContactsListBox.SelectedIndex;
+            if (selectedIndex == -1)
+            {
+                return;
+            }
+            var result = MessageBox.Show("Вы действительно хотите удалить контакт?",
+                "Удаление контакта", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Exclamation);
+            if (result == DialogResult.OK)
+            {
+                ContactsListBox.Items.RemoveAt(selectedIndex);
+                _project.ContactLists.RemoveAt(selectedIndex);
+                ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+            }
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
