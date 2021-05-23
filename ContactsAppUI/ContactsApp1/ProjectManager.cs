@@ -26,7 +26,7 @@ namespace ContactsApp1
         /// </summary>
         /// <param name="data">Данные контактов</param>
         /// <param name="filePath">Расположение файла</param>
-        public static void SaveToFile(Contact data,string filePath)
+        public static void SaveToFile(Project data,string filePath)
         {
             var directoryFile = Path.GetDirectoryName(filePath);
             DirectoryInfo directoryInfo = new DirectoryInfo(directoryFile);
@@ -46,19 +46,19 @@ namespace ContactsApp1
         /// </summary>
         /// <param name="filePath">Расположение файла</param>
         /// <returns> Возвращает переменную содеражащую данные Contact</returns>
-        public static Contact LoadFile(string filePath)
+        public static Project LoadFile(string filePath)
         {
             if (!File.Exists(filePath))
             {
-                var emptyContact = new Contact();
+                var emptyContact = new Project();
                 return emptyContact;
             }
-            Contact contact = null;
+            Project contact = null;
             JsonSerializer serializer = new JsonSerializer();
             using (StreamReader streamReader = new StreamReader(filePath))
             using (JsonReader reader = new JsonTextReader(streamReader))
             {
-                contact = (Contact)serializer.Deserialize<Contact>(reader);
+                contact = (Project)serializer.Deserialize<Project>(reader);
 
             }
 

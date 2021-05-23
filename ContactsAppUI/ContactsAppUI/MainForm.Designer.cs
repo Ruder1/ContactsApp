@@ -34,7 +34,6 @@
             this.EmailLabel = new System.Windows.Forms.Label();
             this.IdVkLabel = new System.Windows.Forms.Label();
             this.PhoneLabel = new System.Windows.Forms.Label();
-            this.Contact = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.FindLabel = new System.Windows.Forms.Label();
@@ -57,8 +56,11 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.EditButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,16 +117,6 @@
             this.PhoneLabel.Size = new System.Drawing.Size(81, 13);
             this.PhoneLabel.TabIndex = 7;
             this.PhoneLabel.Text = "Phone Number:";
-            // 
-            // Contact
-            // 
-            this.Contact.Location = new System.Drawing.Point(174, 536);
-            this.Contact.Name = "Contact";
-            this.Contact.Size = new System.Drawing.Size(75, 23);
-            this.Contact.TabIndex = 8;
-            this.Contact.Text = "Contact";
-            this.Contact.UseVisualStyleBackColor = true;
-            this.Contact.Click += new System.EventHandler(this.Contact_Click);
             // 
             // AddButton
             // 
@@ -257,7 +249,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -304,7 +296,7 @@
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem1_Click);
             // 
@@ -312,15 +304,38 @@
             // 
             this.splitContainer1.Location = new System.Drawing.Point(12, 51);
             this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Size = new System.Drawing.Size(570, 464);
             this.splitContainer1.SplitterDistance = 207;
             this.splitContainer1.TabIndex = 23;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(3, 382);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(353, 79);
+            this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // EditButton
+            // 
+            this.EditButton.Location = new System.Drawing.Point(174, 536);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(75, 23);
+            this.EditButton.TabIndex = 24;
+            this.EditButton.Text = "Edit";
+            this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 571);
+            this.Controls.Add(this.EditButton);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.BirthDateTimePicker);
             this.Controls.Add(this.PhoneTextBox);
@@ -333,7 +348,6 @@
             this.Controls.Add(this.ContactsListBox);
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.Contact);
             this.Controls.Add(this.PhoneLabel);
             this.Controls.Add(this.IdVkLabel);
             this.Controls.Add(this.EmailLabel);
@@ -345,9 +359,12 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(610, 610);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -362,7 +379,6 @@
         private System.Windows.Forms.Label EmailLabel;
         private System.Windows.Forms.Label IdVkLabel;
         private System.Windows.Forms.Label PhoneLabel;
-        private System.Windows.Forms.Button Contact;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Label FindLabel;
@@ -385,6 +401,8 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button EditButton;
     }
 }
 
