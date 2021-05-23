@@ -47,11 +47,14 @@ namespace ContactsAppUI
 
         private void OKButton_Click(object sender, EventArgs e)
         {
+            var numberPhone = PhoneNumberTextBox.Text.Replace("(", "").
+                Replace(")", "").
+                Replace("-", "").Replace("_","");
             try
             {
                 Contact.Surname = SurnameTextBox.Text;
                 Contact.Name = NameTextBox.Text;
-                Contact.PhoneNumber.NumberPhone = PhoneNumberTextBox.Text;
+                Contact.PhoneNumber.NumberPhone = numberPhone;
                 Contact.DateOfBirth = BirthDateTimePicker.Value;
                 Contact.Email = EmailTextBox.Text;
                 Contact.IdVkontake = IDVkTextBox.Text;
@@ -136,26 +139,11 @@ namespace ContactsAppUI
 
             }
         }
-
-        private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Contact.PhoneNumber.NumberPhone = EmailTextBox.Text;
-                PhoneNumberTextBox.BackColor = _correctInputColor;
-            }
-            catch (ArgumentException exception)
-            {
-
-                PhoneNumberTextBox.BackColor = _incorrectInputColor;
-
-            }
-        }
-
         private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
     }
 }

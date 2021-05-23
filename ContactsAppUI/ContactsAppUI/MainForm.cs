@@ -33,13 +33,14 @@ namespace ContactsAppUI
             {
                 var newContact = contactForm.Contact;
                 _project.ContactLists.Add(newContact);
-                ProjectManager.SaveToFile(_project,ProjectManager.DefaultPath);
                 ContactsListBox.Items.Add(newContact.Name);
             }
+            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             Environment.Exit(0);
         }
 
@@ -52,6 +53,8 @@ namespace ContactsAppUI
             }
             ContactsListBox.Items.RemoveAt(selectedIndex);
             _project.ContactLists.RemoveAt(selectedIndex);
+            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+            //TODO: Сохранение
         }
 
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,10 +65,6 @@ namespace ContactsAppUI
             }
             int selectedIndex = ContactsListBox.SelectedIndex;
             var contact = _project.ContactLists[selectedIndex];
-            if (ContactsListBox.Items.Count != _project.ContactLists.Count)
-            {
-                contact = _viewingListContacts[selectedIndex];
-            }
 
             SurnameTextBox.Text = contact.Surname;
             NameTextBox.Text = contact.Name;
@@ -82,7 +81,7 @@ namespace ContactsAppUI
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProjectManager.SaveToFile(_project,ProjectManager.DefaultPath);
+            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             Environment.Exit(0);
         }
 
@@ -115,10 +114,14 @@ namespace ContactsAppUI
         private void EditButton_Click(object sender, EventArgs e)
         {
             var selectedIndex = ContactsListBox.SelectedIndex;
+            if (selectedIndex == -1)
+            {
+                return;
+            }
+
             var selectedData = _project.ContactLists[selectedIndex];
 
-            var editContact = new ContactsForm();
-            editContact.Contact = selectedData;
+            var editContact = new ContactsForm {Contact = selectedData};
             editContact.ShowDialog();
             if (editContact.DialogResult == DialogResult.OK)
             {
@@ -128,12 +131,21 @@ namespace ContactsAppUI
                 _project.ContactLists.Insert(selectedIndex,updatedContact);
                 ContactsListBox.Items.Insert(selectedIndex,updatedContact.Name);
             }
-
+            ProjectManager.SaveToFile(_project,ProjectManager.DefaultPath);
+            //TODO: Сохранение
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _project = ProjectManager.LoadFile(ProjectManager.DefaultPath);
+            _project.ContactLists.Clear();
+            ContactsListBox.Items.Clear();
+            _project=ProjectManager.LoadFile(ProjectManager.DefaultPath);
+            foreach (var contact in _project.ContactLists)
+            {
+                ContactsListBox.Items.Add(contact.Name);
+            }
+            //TODO: Load
+            //_project = ProjectManager.LoadFile(ProjectManager.DefaultPath);
         }
     }
 }
