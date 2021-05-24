@@ -24,6 +24,7 @@ namespace ContactsAppUI
         private List<string> _birthdayContact = new List<string>();
         public MainForm()
         {
+            //1
             InitializeComponent();
         }
 
