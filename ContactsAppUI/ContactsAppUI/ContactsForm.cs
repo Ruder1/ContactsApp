@@ -70,7 +70,7 @@ namespace ContactsAppUI
                 DialogResult result = MessageBox.Show
                 (
                     exception.Message,
-                    "Ошибка",
+                    "Одно из полей введено неверно",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
