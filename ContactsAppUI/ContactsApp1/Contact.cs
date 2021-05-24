@@ -6,16 +6,41 @@ using System.Threading.Tasks;
 
 namespace ContactsApp1
 {
-    public class Contact:ICloneable
+    /// <summary>
+    /// Класс создания контакта
+    /// </summary>
+
+    public class Contact : ICloneable
     {
+
+        /// <summary>
+        /// Поле фамилии
+        /// </summary>
         private string _surname;
+
+        /// <summary>
+        /// Поле имени
+        /// </summary>
         private string _name;
+
+        /// <summary>
+        /// Поле электроной почты
+        /// </summary>
         private string _email;
+
+        /// <summary>
+        /// Поле индетефикатор вконтакте
+        /// </summary>
         private string _idVkontakte;
-        private DateTime _birthDate;
-            /// <summary>
-            /// Чтение и запись Фамилии
-            /// </summary>
+
+        /// <summary>
+        /// Поле дня рождения
+        /// </summary>
+        private DateTime _dateOfBirth;
+
+        /// <summary>
+        /// Чтение и запись Фамилии
+        /// </summary>
         public string Surname
         {
             get { return _surname; }
@@ -48,20 +73,20 @@ namespace ContactsApp1
         {
             get
             {
-                return _birthDate;
+                return _dateOfBirth;
             }
 
             set
             {
                 var date1 = new DateTime(1900, 01, 01);
-                if (value > DateTime.Now || value <= date1)
+                if (value > DateTime.Today || value <= date1)
                 {
                     throw new ArgumentException(
                         $"Дата рождения не должна быть раньше 01.01.1900 и позже " +
-                        $"сегодня: -{DateTime.Now}");
+                        $"сегодня: -{DateTime.Today}");
                 }
 
-                _birthDate = value;
+                _dateOfBirth = value;
             }
         }
 
@@ -112,14 +137,14 @@ namespace ContactsApp1
         /// <param name="email">Эл Почта</param>
         /// <param name="idVkontake">ID Вконтакте</param>
         public Contact(string surname, string name, string phoneNumber,
-            DateTime birthday, string email, string idVk)
+            DateTime dateOfBirth, string email, string idVkontakte)
         {
             Surname = surname;
             Name = name;
             PhoneNumber.NumberPhone= phoneNumber;
-            DateOfBirth = birthday;
+            DateOfBirth = dateOfBirth;
             Email = email;
-            IdVkontake = idVk;
+            IdVkontake = idVkontakte;
         }
         /// <summary>
         /// Чтение и запись номера телефона

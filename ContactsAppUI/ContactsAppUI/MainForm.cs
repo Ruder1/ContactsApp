@@ -197,7 +197,7 @@ namespace ContactsAppUI
             _birthdayContact = _project.SearchBirthdayContacts();
             if (_birthdayContact.Count==0)
             {
-                BirthLabel.Text = "Сегодня никто не отмечает день рождение";
+                TodayBirthLabel.Text = "Сегодня никто не отмечает день рождение";
             }
             string birthdayStringList = string.Join(", ", _birthdayContact);
 
