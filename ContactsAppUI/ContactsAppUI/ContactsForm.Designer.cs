@@ -135,12 +135,12 @@ namespace ContactsAppUI
             // BirthDateTimePicker
             // 
             this.BirthDateTimePicker.Location = new System.Drawing.Point(103, 90);
-            this.BirthDateTimePicker.MaxDate = new System.DateTime(2021, 12, 31, 0, 0, 0, 0);
-            this.BirthDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.BirthDateTimePicker.MaxDate = new System.DateTime(2021, 12, 31);
+            this.BirthDateTimePicker.MinDate = new System.DateTime(1900, 1, 1);
             this.BirthDateTimePicker.Name = "BirthDateTimePicker";
             this.BirthDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.BirthDateTimePicker.TabIndex = 20;
-            this.BirthDateTimePicker.Value = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.BirthDateTimePicker.Value = System.DateTime.Today;
             this.BirthDateTimePicker.ValueChanged += new System.EventHandler(this.BirthDateTimePicker_ValueChanged);
             // 
             // CancelButton

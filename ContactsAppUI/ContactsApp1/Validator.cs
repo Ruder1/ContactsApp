@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ContactsApp1
 {
+    /// <summary>
+    /// Класс для проверки значений типа string
+    /// </summary>
     public static class Validator
     {
        /// <summary>

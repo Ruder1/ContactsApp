@@ -8,10 +8,14 @@ using Newtonsoft.Json;
 
 namespace ContactsApp1
 {
+    /// <summary>
+    /// Статичный класс для операций с файлами формата .json
+    /// </summary>
     public static class ProjectManager
     {
-
-
+        /// <summary>
+        /// Метод для получения расположения файла
+        /// </summary>
         public static string DefaultPath
         {
             get
@@ -29,14 +33,14 @@ namespace ContactsApp1
         public static void SaveToFile(Project data,string filePath)
         {
             var directoryFile = Path.GetDirectoryName(filePath);
-            DirectoryInfo directoryInfo = new DirectoryInfo(directoryFile);
+            DirectoryInfo directoryInfo = new DirectoryInfo(directoryFile ?? throw new InvalidOperationException());
             if (!Directory.Exists(directoryFile))
             {
                 directoryInfo.Create();
             }
             JsonSerializer serializer = new JsonSerializer();
-            using (StreamWriter streamwWriter = new StreamWriter(filePath))
-            using (JsonWriter writer = new JsonTextWriter(streamwWriter))
+            using (StreamWriter streamWriter = new StreamWriter(filePath))
+            using (JsonWriter writer = new JsonTextWriter(streamWriter))
             {
                 serializer.Serialize(writer, data);
             }
@@ -48,21 +52,36 @@ namespace ContactsApp1
         /// <returns> Возвращает переменную содеражащую данные Contact</returns>
         public static Project LoadFile(string filePath)
         {
-            if (!File.Exists(filePath))
-            {
-                var emptyContact = new Project();
-                return emptyContact;
-            }
-            Project contact = null;
+            //if (!File.Exists(filePath))
+            //{
+            //    var emptyContact = new Project();
+            //    return emptyContact;
+            //}
+            Project project = null;
             JsonSerializer serializer = new JsonSerializer();
-            using (StreamReader streamReader = new StreamReader(filePath))
-            using (JsonReader reader = new JsonTextReader(streamReader))
+       
+            try
             {
-                contact = (Project)serializer.Deserialize<Project>(reader);
+                if (File.Exists(filePath))
+                {
+                    using (StreamReader streamReader = new StreamReader(filePath))
+                    using (JsonReader reader = new JsonTextReader(streamReader))
+                    {
+                        project = (Project)serializer.Deserialize<Project>(reader);
 
+                    }
+                    return project;
+                }
+                else
+                {
+                    throw new ArgumentException("Не существует файла");
+                }
             }
-
-            return contact;
+            catch (ArgumentException exception)
+            {
+                return new Project();
+            }
+            
         }
         
     }

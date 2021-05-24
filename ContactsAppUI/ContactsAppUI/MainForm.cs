@@ -24,7 +24,6 @@ namespace ContactsAppUI
         private List<string> _birthdayContact = new List<string>();
         public MainForm()
         {
-            //1
             InitializeComponent();
         }
 
@@ -197,7 +196,7 @@ namespace ContactsAppUI
             _birthdayContact = _project.SearchBirthdayContacts();
             if (_birthdayContact.Count==0)
             {
-                BirthLabel.Text = "Сегодня никто не отмечает день рождение";
+                TodayBirthLabel.Text = "Сегодня никто не отмечает день рождение";
             }
             string birthdayStringList = string.Join(", ", _birthdayContact);
 
@@ -205,6 +204,11 @@ namespace ContactsAppUI
         }
 
         private void BirthDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
