@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace ContactsApp1
 {
-    /// <summary>
-    /// Класс для создания списка контактов
-    /// </summary>
     public class Project
     {
         /// <summary>
@@ -16,10 +13,6 @@ namespace ContactsApp1
         /// </summary>
         public List<Contact> ContactLists { get; set; } = new List<Contact>();
 
-        /// <summary>
-        /// Поиск контактов у которых сегодня день рождение
-        /// </summary>
-        /// <returns>Возвращает список имен контактов</returns>
         public List<string> SearchBirthdayContacts()
         {
             var birthdayContacts = new List<string>();

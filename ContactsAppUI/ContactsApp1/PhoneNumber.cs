@@ -6,17 +6,11 @@ using System.Threading.Tasks;
 
 namespace ContactsApp1
 {
-    /// <summary>
-    /// Класс создания номера телефона
-    /// </summary>
     public class PhoneNumber
     {
-        /// <summary>
-        /// Поле номер телефона
-        /// </summary>
         private string _phoneNumber;
         /// <summary>
-        /// Чтение и запись номера телефона
+        /// Присваивает номер телефона
         /// </summary>
         public string NumberPhone
         {

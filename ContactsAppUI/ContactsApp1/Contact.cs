@@ -6,41 +6,16 @@ using System.Threading.Tasks;
 
 namespace ContactsApp1
 {
-    /// <summary>
-    /// Класс создания контакта
-    /// </summary>
-   
     public class Contact:ICloneable
     {
-
-        /// <summary>
-        /// Поле фамилии
-        /// </summary>
         private string _surname;
-
-        /// <summary>
-        /// Поле имени
-        /// </summary>
         private string _name;
-
-        /// <summary>
-        /// Поле электроной почты
-        /// </summary>
         private string _email;
-
-        /// <summary>
-        /// Поле индетефикатор вконтакте
-        /// </summary>
         private string _idVkontakte;
-
-        /// <summary>
-        /// Поле дня рождения
-        /// </summary>
-        private DateTime _dateOfBirth;
-
-        /// <summary>
-        /// Чтение и запись Фамилии
-        /// </summary>
+        private DateTime _birthDate;
+            /// <summary>
+            /// Чтение и запись Фамилии
+            /// </summary>
         public string Surname
         {
             get { return _surname; }
@@ -52,10 +27,9 @@ namespace ContactsApp1
                 _surname = value;
             }
         }
-
-        /// <summary>
-        /// Чтение и запись Имени
-        /// </summary>
+            /// <summary>
+            /// Чтение и запись Имени
+            /// </summary>
         public string Name
         {
             get { return _name; }
@@ -67,7 +41,6 @@ namespace ContactsApp1
                 _name = value;
             }
         }
-
         /// <summary>
         ///  Чтение и запись Дня рождения
         /// </summary>
@@ -75,22 +48,23 @@ namespace ContactsApp1
         {
             get
             {
-                return _dateOfBirth;
+                return _birthDate;
             }
 
             set
             {
                 var date1 = new DateTime(1900, 01, 01);
-                if (value > DateTime.Today || value <= date1)
+                if (value > DateTime.Now || value <= date1)
                 {
                     throw new ArgumentException(
                         $"Дата рождения не должна быть раньше 01.01.1900 и позже " +
-                        $"сегодня: -{DateTime.Today}");
+                        $"сегодня: -{DateTime.Now}");
                 }
 
-                _dateOfBirth = value;
+                _birthDate = value;
             }
         }
+
 
         /// <summary>
         /// Чтение и запись Email
@@ -105,7 +79,6 @@ namespace ContactsApp1
                 _email = value;
             }
         }
-
         /// <summary>
         /// Чтение и запись IdVk
         /// </summary>
@@ -137,34 +110,29 @@ namespace ContactsApp1
         /// <param name="phoneNumber">Номер телефона</param>
         /// <param name="dateOfBirth">Дата рождения</param>
         /// <param name="email">Эл Почта</param>
-        /// <param name="idVkontakte">ID Вконтакте</param>
+        /// <param name="idVkontake">ID Вконтакте</param>
         public Contact(string surname, string name, string phoneNumber,
-            DateTime dateOfBirth, string email, string idVkontakte)
+            DateTime birthday, string email, string idVk)
         {
             Surname = surname;
             Name = name;
             PhoneNumber.NumberPhone= phoneNumber;
-            DateOfBirth = dateOfBirth;
+            DateOfBirth = birthday;
             Email = email;
-            IdVkontake = idVkontakte;
+            IdVkontake = idVk;
         }
         /// <summary>
-        /// Вызов конструктора для создания поля NumberPhone
+        /// Чтение и запись номера телефона
         /// </summary>
         public PhoneNumber PhoneNumber = new PhoneNumber();
 
-        /// <summary>
-        /// Стандартный конструктор
-        /// </summary>
-        /// <returns>Возвращает значение null</returns>
         public Contact()
         {
         }
-
         /// <summary>
-        /// Клонирование объекта Contact
+        /// Клонирование объекта контакт
         /// </summary>
-        /// <returns>Возвращает копию объекта Contact</returns>
+        /// <returns></returns>
         public object Clone()
         {
             return new Contact(Surname, Name, PhoneNumber.NumberPhone, DateOfBirth, Email, IdVkontake);
