@@ -54,7 +54,7 @@ namespace ContactsApp1
             set
             {
                 var date1 = new DateTime(1900, 01, 01);
-                if (value > DateTime.Now || value < date1)
+                if (value > DateTime.Now || value <= date1)
                 {
                     throw new ArgumentException(
                         $"Дата рождения не должна быть раньше 01.01.1900 и позже " +

@@ -18,6 +18,9 @@ namespace ContactsAppUI
         private readonly Color _incorrectInputColor = Color.LightSalmon;
 
         private readonly Color _correctInputColor = Color.White;
+        /// <summary>
+        /// Занесение полей контакта введеных пользователем
+        /// </summary>
         public Contact Contact
         {
             get
@@ -43,6 +46,7 @@ namespace ContactsAppUI
         public ContactsForm()
         {
             InitializeComponent();
+            BirthDateTimePicker.BackColor = _incorrectInputColor;
         }
 
         private void OKButton_Click(object sender, EventArgs e)
@@ -66,7 +70,7 @@ namespace ContactsAppUI
                 DialogResult result = MessageBox.Show
                 (
                     exception.Message,
-                    "Input Error",
+                    "Одно из полей введено неверно",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );

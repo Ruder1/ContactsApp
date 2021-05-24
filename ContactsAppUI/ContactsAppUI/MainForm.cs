@@ -18,7 +18,10 @@ namespace ContactsAppUI
         /// Список контактов
         /// </summary>
         private Project _project = new Project();
-
+        /// <summary>
+        /// Контакты у которых день рождение
+        /// </summary>
+        private List<string> _birthdayContact = new List<string>();
         public MainForm()
         {
             InitializeComponent();
@@ -27,6 +30,7 @@ namespace ContactsAppUI
         private void AddButton_Click(object sender, EventArgs e)
         {
             AddContact();
+            SearchBirthdayContacts();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -38,6 +42,7 @@ namespace ContactsAppUI
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             RemoveContact();
+            SearchBirthdayContacts();
         }
 
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,16 +88,19 @@ namespace ContactsAppUI
         private void AddContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddContact();
+            SearchBirthdayContacts();
         }
 
         private void EditContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditContact();
+            SearchBirthdayContacts();
         }
 
         private void RemoveContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RemoveContact();
+            SearchBirthdayContacts();
         }
 
         private void AboutToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -101,14 +109,10 @@ namespace ContactsAppUI
             aboutForm.Show();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void EditButton_Click(object sender, EventArgs e)
         {
             EditContact();
+            SearchBirthdayContacts();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -120,8 +124,11 @@ namespace ContactsAppUI
             {
                 ContactsListBox.Items.Add(contact.Name);
             }
+            SearchBirthdayContacts();
         }
-
+        /// <summary>
+        /// Функция редактирования контакта
+        /// </summary>
         private void EditContact()
         {
             var selectedIndex = ContactsListBox.SelectedIndex;
@@ -144,6 +151,9 @@ namespace ContactsAppUI
                 ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
         }
+        /// <summary>
+        /// Функция добавления контакта
+        /// </summary>
         private void AddContact()
         {
             var contactForm = new ContactsForm();
@@ -155,8 +165,11 @@ namespace ContactsAppUI
                 ContactsListBox.Items.Add(newContact.Name);
             }
             ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+            SearchBirthdayContacts();
         }
-
+        /// <summary>
+        /// Функция удаление контакта
+        /// </summary>
         private void RemoveContact()
         {
             var selectedIndex = ContactsListBox.SelectedIndex;
@@ -164,7 +177,8 @@ namespace ContactsAppUI
             {
                 return;
             }
-            var result = MessageBox.Show("Вы действительно хотите удалить контакт?",
+            var result = MessageBox.Show("Вы действительно хотите удалить контакт: "+ 
+                                         _project.ContactLists[selectedIndex].Name+"?",
                 "Удаление контакта", MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
@@ -174,13 +188,22 @@ namespace ContactsAppUI
                 ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
         }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        /// <summary>
+        /// Функция поиска из списка контактов у которых сегодня день рождение
+        /// </summary>
+        private void SearchBirthdayContacts()
         {
+            _birthdayContact = _project.SearchBirthdayContacts();
+            if (_birthdayContact.Count==0)
+            {
+                BirthLabel.Text = "Сегодня никто не отмечает день рождение";
+            }
+            string birthdayStringList = string.Join(", ", _birthdayContact);
 
+            TodayBirthLabel.Text = "Сегодня празднуют день рождения: \n" + birthdayStringList;
         }
 
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        private void BirthDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
 
         }

@@ -60,12 +60,14 @@
             this.EditButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TodayBirthLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SurnameLabel
@@ -138,7 +140,7 @@
             this.FindTextBox.Location = new System.Drawing.Point(56, 56);
             this.FindTextBox.MaximumSize = new System.Drawing.Size(800, 20);
             this.FindTextBox.Name = "FindTextBox";
-            this.FindTextBox.Size = new System.Drawing.Size(195, 20);
+            this.FindTextBox.Size = new System.Drawing.Size(156, 20);
             this.FindTextBox.TabIndex = 13;
             this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
             // 
@@ -149,7 +151,7 @@
             this.SurnameTextBox.Location = new System.Drawing.Point(89, 56);
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.ReadOnly = true;
-            this.SurnameTextBox.Size = new System.Drawing.Size(300, 20);
+            this.SurnameTextBox.Size = new System.Drawing.Size(239, 20);
             this.SurnameTextBox.TabIndex = 14;
             // 
             // NameTextBox
@@ -159,7 +161,7 @@
             this.NameTextBox.Location = new System.Drawing.Point(89, 82);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.ReadOnly = true;
-            this.NameTextBox.Size = new System.Drawing.Size(300, 20);
+            this.NameTextBox.Size = new System.Drawing.Size(239, 20);
             this.NameTextBox.TabIndex = 15;
             // 
             // EMailTextBox
@@ -169,7 +171,7 @@
             this.EMailTextBox.Location = new System.Drawing.Point(89, 134);
             this.EMailTextBox.Name = "EMailTextBox";
             this.EMailTextBox.ReadOnly = true;
-            this.EMailTextBox.Size = new System.Drawing.Size(300, 20);
+            this.EMailTextBox.Size = new System.Drawing.Size(239, 20);
             this.EMailTextBox.TabIndex = 17;
             // 
             // IdVkTextBox
@@ -179,7 +181,7 @@
             this.IdVkTextBox.Location = new System.Drawing.Point(89, 186);
             this.IdVkTextBox.Name = "IdVkTextBox";
             this.IdVkTextBox.ReadOnly = true;
-            this.IdVkTextBox.Size = new System.Drawing.Size(300, 20);
+            this.IdVkTextBox.Size = new System.Drawing.Size(239, 20);
             this.IdVkTextBox.TabIndex = 18;
             // 
             // PhoneTextBox
@@ -189,7 +191,7 @@
             this.PhoneTextBox.Location = new System.Drawing.Point(89, 160);
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.ReadOnly = true;
-            this.PhoneTextBox.Size = new System.Drawing.Size(300, 20);
+            this.PhoneTextBox.Size = new System.Drawing.Size(239, 20);
             this.PhoneTextBox.TabIndex = 19;
             // 
             // BirthDateTimePicker
@@ -201,8 +203,9 @@
             this.BirthDateTimePicker.MaxDate = new System.DateTime(2025, 12, 22, 0, 0, 0, 0);
             this.BirthDateTimePicker.MinDate = new System.DateTime(1901, 1, 1, 0, 0, 0, 0);
             this.BirthDateTimePicker.Name = "BirthDateTimePicker";
-            this.BirthDateTimePicker.Size = new System.Drawing.Size(223, 20);
+            this.BirthDateTimePicker.Size = new System.Drawing.Size(162, 20);
             this.BirthDateTimePicker.TabIndex = 20;
+            this.BirthDateTimePicker.ValueChanged += new System.EventHandler(this.BirthDateTimePicker_ValueChanged);
             // 
             // ExitButton
             // 
@@ -224,7 +227,7 @@
             this.ContactsListBox.MaximumSize = new System.Drawing.Size(800, 1000);
             this.ContactsListBox.MinimumSize = new System.Drawing.Size(100, 100);
             this.ContactsListBox.Name = "ContactsListBox";
-            this.ContactsListBox.Size = new System.Drawing.Size(228, 381);
+            this.ContactsListBox.Size = new System.Drawing.Size(189, 381);
             this.ContactsListBox.TabIndex = 11;
             this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
@@ -319,7 +322,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.menuStrip1);
             this.splitContainer1.Panel1.Controls.Add(this.FindLabel);
             this.splitContainer1.Panel1.Controls.Add(this.ContactsListBox);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -336,9 +338,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.PhoneLabel);
             this.splitContainer1.Panel2.Controls.Add(this.NameLabel);
             this.splitContainer1.Panel2.Controls.Add(this.SurnameLabel);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(718, 571);
-            this.splitContainer1.SplitterDistance = 288;
+            this.splitContainer1.Size = new System.Drawing.Size(584, 541);
+            this.splitContainer1.SplitterDistance = 215;
             this.splitContainer1.TabIndex = 23;
             // 
             // tableLayoutPanel1
@@ -351,7 +352,7 @@
             this.tableLayoutPanel1.Controls.Add(this.AddButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.EditButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.RemoveButton, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(23, 467);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(23, 477);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -396,24 +397,34 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Location = new System.Drawing.Point(3, 462);
+            this.panel1.Controls.Add(this.TodayBirthLabel);
+            this.panel1.Location = new System.Drawing.Point(5, 435);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(420, 106);
+            this.panel1.Size = new System.Drawing.Size(357, 103);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // TodayBirthLabel
+            // 
+            this.TodayBirthLabel.AutoSize = true;
+            this.TodayBirthLabel.Location = new System.Drawing.Point(116, 4);
+            this.TodayBirthLabel.Name = "TodayBirthLabel";
+            this.TodayBirthLabel.Size = new System.Drawing.Size(58, 13);
+            this.TodayBirthLabel.TabIndex = 0;
+            this.TodayBirthLabel.Text = "TodayBirth";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 571);
+            this.ClientSize = new System.Drawing.Size(584, 541);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.ExitButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(610, 610);
+            this.MinimumSize = new System.Drawing.Size(600, 580);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "ContactsApp";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -424,6 +435,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -460,6 +473,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label TodayBirthLabel;
     }
 }
 

@@ -29,6 +29,7 @@ namespace ContactsAppUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactsForm));
             this.PhoneLabel = new System.Windows.Forms.Label();
             this.IdVkLabel = new System.Windows.Forms.Label();
             this.EmailLabel = new System.Windows.Forms.Label();
@@ -134,9 +135,12 @@ namespace ContactsAppUI
             // BirthDateTimePicker
             // 
             this.BirthDateTimePicker.Location = new System.Drawing.Point(103, 90);
+            this.BirthDateTimePicker.MaxDate = new System.DateTime(2021, 12, 31, 0, 0, 0, 0);
+            this.BirthDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.BirthDateTimePicker.Name = "BirthDateTimePicker";
             this.BirthDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.BirthDateTimePicker.TabIndex = 20;
+            this.BirthDateTimePicker.Value = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
             this.BirthDateTimePicker.ValueChanged += new System.EventHandler(this.BirthDateTimePicker_ValueChanged);
             // 
             // CancelButton
@@ -186,6 +190,7 @@ namespace ContactsAppUI
             this.Controls.Add(this.BirthLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.SurnameLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ContactsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ContatsAdd";
