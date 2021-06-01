@@ -55,37 +55,26 @@ namespace ContactsApp1
         /// <returns> Возвращает переменную содеражащую данные Contact</returns>
         public static Project LoadFile(string filePath)
         {
-            //if (!File.Exists(filePath))
-            //{
-            //    var emptyContact = new Project();
-            //    return emptyContact;
-            //}
             Project project = null;
             JsonSerializer serializer = new JsonSerializer();
 
             try
             {
-                if (File.Exists(filePath))
+                using (StreamReader streamReader = new StreamReader(filePath))
+                using (JsonReader reader = new JsonTextReader(streamReader))
                 {
-                    using (StreamReader streamReader = new StreamReader(filePath))
-                    using (JsonReader reader = new JsonTextReader(streamReader))
+                    project = (Project)serializer.Deserialize<Project>(reader);
+                    if (project.ContactLists.Capacity == 0)
                     {
-                        project = (Project) serializer.Deserialize<Project>(reader);
-
+                        project = new Project();
                     }
-
-                    return project;
                 }
-                else
-                {
-                    throw new ArgumentException("Не существует файла");
-                }
+                return project;
             }
-            catch (ArgumentException exception)
+            catch ( Exception exception)
             {
                 return new Project();
             }
-
         }
     }
 }
