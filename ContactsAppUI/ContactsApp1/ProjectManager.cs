@@ -8,42 +8,78 @@ using Newtonsoft.Json;
 
 namespace ContactsApp1
 {
+
+    /// <summary>
+    /// Статичный класс для операций с файлами формата .json
+    /// </summary>
     public static class ProjectManager
     {
-        
-        private const string FilePath = @"C:\Users\Ruder\Documents\Contacts app\ContactsApp.json";
+        /// <summary>
+        /// Метод для получения расположения файла
+        /// </summary>
+        public static string DefaultPath
+        {
+            get
+            {
+                var appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                var path = appDataFolder + @"\ContactsApp\contact.json";
+                return path;
+            }
+        }
+
+
         /// <summary>
         /// преобразования какого-либо объекта в поток байтов
         /// </summary>
         /// <param name="data">Данные контактов</param>
-        /// <param name="filename">Имя файла</param>
-        public static void SaveToFile(Contact data)
+
+        /// <param name="filePath">Расположение файла</param>
+        public static void SaveToFile(Project data, string filePath)
         {
+            var directoryFile = Path.GetDirectoryName(filePath);
+            DirectoryInfo directoryInfo = new DirectoryInfo(directoryFile ?? throw new InvalidOperationException());
+            if (!Directory.Exists(directoryFile))
+            {
+                directoryInfo.Create();
+            }
+
             JsonSerializer serializer = new JsonSerializer();
-            using (StreamWriter streamwWriter = new StreamWriter(FilePath))
-            using (JsonWriter writer = new JsonTextWriter(streamwWriter))
+            using (StreamWriter streamWriter = new StreamWriter(filePath))
+            using (JsonWriter writer = new JsonTextWriter(streamWriter))
+
             {
                 serializer.Serialize(writer, data);
             }
         }
+      
         /// <summary>
         /// Получение из потока байтов ранее сохраненный файл
         /// </summary>
-        /// <param name="filename"></param>
+        /// <param name="filePath">Расположение файла</param>
         /// <returns> Возвращает переменную содеражащую данные Contact</returns>
-        public static Contact LoadFile()
+        public static Project LoadFile(string filePath)
         {
-            Contact contact = null;
+            Project project = null;
             JsonSerializer serializer = new JsonSerializer();
-            using (StreamReader streamReader = new StreamReader(FilePath))
-            using (JsonReader reader = new JsonTextReader(streamReader))
+
+            try
             {
-                contact = (Contact)serializer.Deserialize<Contact>(reader);
-
+                using (StreamReader streamReader = new StreamReader(filePath))
+                using (JsonReader reader = new JsonTextReader(streamReader))
+                {
+                    project = (Project)serializer.Deserialize<Project>(reader);
+                    if (project.ContactLists.Capacity == 0)
+                    {
+                        project = new Project();
+                    }
+                }
+                return project;
             }
-
-            return contact;
+            catch ( Exception exception)
+            {
+                return new Project();
+            }
         }
-        
+
     }
 }

@@ -6,27 +6,34 @@ using System.Threading.Tasks;
 
 namespace ContactsApp1
 {
+
+    /// <summary>
+    /// Класс для создания списка контактов
+    /// </summary>
     public class Project
     {
-        private List<Contact> _contactLists;
         /// <summary>
-        /// Список контактов
+        /// Создает поле которое зранит список контактов
         /// </summary>
-        public List<Contact> ContactLists
-        {
-            get { return _contactLists;}
-            set
-            {
-                _contactLists = value;
-            }
-        }
+        public List<Contact> ContactLists { get; set; } = new List<Contact>();
+
         /// <summary>
-        /// Добавление конкта в список
+        /// Поиск контактов у которых сегодня день рождение
         /// </summary>
-        /// <param name="contact"></param>
-        public void AddContacts(Contact contact)
+        /// <returns>Возвращает список имен контактов</returns>
+        public List<string> SearchBirthdayContacts()
         {
-            _contactLists.Add(contact);
+            var birthdayContacts = new List<string>();
+                foreach(var contact in ContactLists)
+                {
+                    if (contact.DateOfBirth.Month == DateTime.Today.Month &&
+                        contact.DateOfBirth.Day == DateTime.Today.Day)
+                    {
+                        birthdayContacts.Add(contact.Name);
+                    }
+                }
+
+                return birthdayContacts;
         }
 
     }
