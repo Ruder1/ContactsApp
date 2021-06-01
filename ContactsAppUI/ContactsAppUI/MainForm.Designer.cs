@@ -438,6 +438,7 @@
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
+
         }
 
         #endregion
@@ -473,6 +474,7 @@
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label TodayBirthLabel;
+
     }
 }
 

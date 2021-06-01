@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp1
 {
+
     /// <summary>
     /// Класс для создания списка контактов
     /// </summary>
@@ -34,5 +35,6 @@ namespace ContactsApp1
 
                 return birthdayContacts;
         }
+
     }
 }

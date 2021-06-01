@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace ContactsApp1
 {
+
     /// <summary>
     /// Статичный класс для операций с файлами формата .json
     /// </summary>
@@ -26,10 +27,12 @@ namespace ContactsApp1
             }
         }
 
+
         /// <summary>
         /// преобразования какого-либо объекта в поток байтов
         /// </summary>
         /// <param name="data">Данные контактов</param>
+
         /// <param name="filePath">Расположение файла</param>
         public static void SaveToFile(Project data, string filePath)
         {
@@ -43,11 +46,12 @@ namespace ContactsApp1
             JsonSerializer serializer = new JsonSerializer();
             using (StreamWriter streamWriter = new StreamWriter(filePath))
             using (JsonWriter writer = new JsonTextWriter(streamWriter))
+
             {
                 serializer.Serialize(writer, data);
             }
         }
-
+      
         /// <summary>
         /// Получение из потока байтов ранее сохраненный файл
         /// </summary>
@@ -76,5 +80,6 @@ namespace ContactsApp1
                 return new Project();
             }
         }
+
     }
 }

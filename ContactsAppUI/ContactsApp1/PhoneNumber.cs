@@ -12,6 +12,7 @@ namespace ContactsApp1
     public class PhoneNumber
     {
         /// <summary>
+
         /// Поле номер телефона
         /// </summary>
         private string _phoneNumber;

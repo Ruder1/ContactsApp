@@ -41,6 +41,7 @@ namespace ContactsApp1
         /// <summary>
         /// Чтение и запись Фамилии
         /// </summary>
+
         public string Surname
         {
             get { return _surname; }
@@ -73,12 +74,15 @@ namespace ContactsApp1
         {
             get
             {
+
                 return _dateOfBirth;
+
             }
 
             set
             {
                 var date1 = new DateTime(1900, 01, 01);
+
                 if (value > DateTime.Today || value <= date1)
                 {
                     throw new ArgumentException(
@@ -130,6 +134,7 @@ namespace ContactsApp1
         /// <summary>
         /// Конуструктор для класса Contact
         /// </summary>
+
         /// <param name="surname">Фамилия</param>
         /// <param name="name">Имя</param>
         /// <param name="phoneNumber">Номер телефона</param>
@@ -138,10 +143,12 @@ namespace ContactsApp1
         /// <param name="idVkontake">ID Вконтакте</param>
         public Contact(string surname, string name, string phoneNumber,
             DateTime dateOfBirth, string email, string idVkontakte)
+
         {
             Surname = surname;
             Name = name;
             PhoneNumber.NumberPhone= phoneNumber;
+
             DateOfBirth = dateOfBirth;
             Email = email;
             IdVkontake = idVkontakte;
@@ -149,15 +156,18 @@ namespace ContactsApp1
         /// <summary>
         /// Чтение и запись номера телефона
         /// </summary>
+
         public PhoneNumber PhoneNumber = new PhoneNumber();
 
         public Contact()
         {
         }
+
         /// <summary>
         /// Клонирование объекта контакт
         /// </summary>
         /// <returns></returns>
+
         public object Clone()
         {
             return new Contact(Surname, Name, PhoneNumber.NumberPhone, DateOfBirth, Email, IdVkontake);
