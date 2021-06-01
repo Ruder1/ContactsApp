@@ -12,6 +12,7 @@ namespace ContactsApp1
     /// </summary>
     public class Project
     {
+
         /// <summary>
         /// Создает поле которое зранит список контактов
         /// </summary>
@@ -29,12 +30,10 @@ namespace ContactsApp1
                     if (contact.DateOfBirth.Month == DateTime.Today.Month &&
                         contact.DateOfBirth.Day == DateTime.Today.Day)
                     {
-                        birthdayContacts.Add(contact.Name);
+                        birthdayContacts.Add(contact.Surname);
                     }
                 }
-
                 return birthdayContacts;
         }
-
     }
 }

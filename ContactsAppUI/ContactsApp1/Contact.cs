@@ -41,7 +41,6 @@ namespace ContactsApp1
         /// <summary>
         /// Чтение и запись Фамилии
         /// </summary>
-
         public string Surname
         {
             get { return _surname; }
@@ -53,9 +52,10 @@ namespace ContactsApp1
                 _surname = value;
             }
         }
-            /// <summary>
-            /// Чтение и запись Имени
-            /// </summary>
+
+        /// <summary>
+        /// Чтение и запись Имени
+        /// </summary>
         public string Name
         {
             get { return _name; }
@@ -67,6 +67,7 @@ namespace ContactsApp1
                 _name = value;
             }
         }
+
         /// <summary>
         ///  Чтение и запись Дня рождения
         /// </summary>
@@ -78,7 +79,6 @@ namespace ContactsApp1
                 return _dateOfBirth;
 
             }
-
             set
             {
                 var date1 = new DateTime(1900, 01, 01);
@@ -94,7 +94,6 @@ namespace ContactsApp1
             }
         }
 
-
         /// <summary>
         /// Чтение и запись Email
         /// </summary>
@@ -108,6 +107,7 @@ namespace ContactsApp1
                 _email = value;
             }
         }
+
         /// <summary>
         /// Чтение и запись IdVk
         /// </summary>
@@ -134,7 +134,6 @@ namespace ContactsApp1
         /// <summary>
         /// Конуструктор для класса Contact
         /// </summary>
-
         /// <param name="surname">Фамилия</param>
         /// <param name="name">Имя</param>
         /// <param name="phoneNumber">Номер телефона</param>
@@ -153,10 +152,10 @@ namespace ContactsApp1
             Email = email;
             IdVkontake = idVkontakte;
         }
+
         /// <summary>
         /// Чтение и запись номера телефона
         /// </summary>
-
         public PhoneNumber PhoneNumber = new PhoneNumber();
 
         public Contact()
@@ -167,7 +166,6 @@ namespace ContactsApp1
         /// Клонирование объекта контакт
         /// </summary>
         /// <returns></returns>
-
         public object Clone()
         {
             return new Contact(Surname, Name, PhoneNumber.NumberPhone, DateOfBirth, Email, IdVkontake);

@@ -11,13 +11,24 @@ using ContactsApp1;
 
 namespace ContactsAppUI
 {
-    public partial class ContactsForm : Form
+    public partial class ContactForm : Form
     {
+
+        /// <summary>
+        /// Создает поле контакт
+        /// </summary>
         private Contact _contact = new Contact();
 
-        private readonly Color _incorrectInputColor = Color.LightSalmon;
+        /// <summary>
+        /// Цвет не правильного ввода значений
+        /// </summary>
+        private readonly Color _incorrectBackColor = Color.LightSalmon;
 
-        private readonly Color _correctInputColor = Color.White;
+        /// <summary>
+        /// Цвет правильного ввода значений
+        /// </summary>
+        private readonly Color _correctBackColor = Color.White;
+
         /// <summary>
         /// Занесение полей контакта введеных пользователем
         /// </summary>
@@ -31,26 +42,24 @@ namespace ContactsAppUI
             {
                 _contact = (Contact)value.Clone();
 
-                if (_contact != null)
-                {
-
-                    SurnameTextBox.Text = _contact.Surname;
-                    NameTextBox.Text = _contact.Name;
-                    PhoneNumberTextBox.Text = _contact.PhoneNumber.NumberPhone;
-                    BirthDateTimePicker.Value = _contact.DateOfBirth;
-                    EmailTextBox.Text = _contact.Email;
-                    IDVkTextBox.Text = _contact.IdVkontake;
-                }
+                if (_contact == null) return;
+                SurnameTextBox.Text = _contact.Surname;
+                NameTextBox.Text = _contact.Name;
+                PhoneNumberTextBox.Text = _contact.PhoneNumber.NumberPhone;
+                BirthDateTimePicker.Value = _contact.DateOfBirth;
+                EmailTextBox.Text = _contact.Email;
+                IDVkTextBox.Text = _contact.IdVkontake;
             }
         }
-        public ContactsForm()
+
+        public ContactForm()
         {
             InitializeComponent();
-            BirthDateTimePicker.BackColor = _incorrectInputColor;
         }
 
         private void OKButton_Click(object sender, EventArgs e)
         {
+            //Убирает из поля PhoneNumber лишние символы - Конвертирует из 7(999)999-9999 в 79999999999
             var numberPhone = PhoneNumberTextBox.Text.Replace("(", "").
                 Replace(")", "").
                 Replace("-", "").Replace("_","");
@@ -70,7 +79,7 @@ namespace ContactsAppUI
                 DialogResult result = MessageBox.Show
                 (
                     exception.Message,
-                    "Ошибка",
+                    "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -82,11 +91,12 @@ namespace ContactsAppUI
             try
             {
                 Contact.Surname = SurnameTextBox.Text;
-                SurnameTextBox.BackColor = _correctInputColor;
+                SurnameTextBox.BackColor = _correctBackColor;
             }
             catch (ArgumentException exception)
             {
-                SurnameTextBox.BackColor = _incorrectInputColor;
+                //TODO: Запретить ввод еще больше строк когда загорается красным для всех исключений
+                SurnameTextBox.BackColor = _incorrectBackColor;
             }
         }
 
@@ -95,11 +105,11 @@ namespace ContactsAppUI
             try
             {
                 Contact.Name = NameTextBox.Text;
-                NameTextBox.BackColor = _correctInputColor;
+                NameTextBox.BackColor = _correctBackColor;
             }
             catch (ArgumentException exception)
             {
-                NameTextBox.BackColor = _incorrectInputColor;
+                NameTextBox.BackColor = _incorrectBackColor;
             }
         }
 
@@ -108,11 +118,11 @@ namespace ContactsAppUI
             try
             {
                 Contact.DateOfBirth = BirthDateTimePicker.Value;
-                BirthDateTimePicker.BackColor = _correctInputColor;
+                BirthDateTimePicker.BackColor = _correctBackColor;
             }
             catch (ArgumentException exception)
             {
-                BirthDateTimePicker.BackColor = _incorrectInputColor;
+                BirthDateTimePicker.BackColor = _incorrectBackColor;
             }
         }
 
@@ -121,11 +131,11 @@ namespace ContactsAppUI
             try
             {
                 Contact.Email = EmailTextBox.Text;
-                EmailTextBox.BackColor = _correctInputColor;
+                EmailTextBox.BackColor = _correctBackColor;
             }
             catch (ArgumentException exception)
             {
-                EmailTextBox.BackColor = _incorrectInputColor;
+                EmailTextBox.BackColor = _incorrectBackColor;
             }
         }
 
@@ -134,12 +144,12 @@ namespace ContactsAppUI
             try
             {
                 Contact.Email = EmailTextBox.Text;
-                IDVkTextBox.BackColor = _correctInputColor;
+                IDVkTextBox.BackColor = _correctBackColor;
             }
             catch (ArgumentException exception)
             {
 
-                IDVkTextBox.BackColor = _incorrectInputColor;
+                IDVkTextBox.BackColor = _incorrectBackColor;
 
             }
         }

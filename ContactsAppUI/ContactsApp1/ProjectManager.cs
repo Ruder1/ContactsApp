@@ -14,6 +14,7 @@ namespace ContactsApp1
     /// </summary>
     public static class ProjectManager
     {
+
         /// <summary>
         /// Метод для получения расположения файла
         /// </summary>
@@ -27,12 +28,10 @@ namespace ContactsApp1
             }
         }
 
-
         /// <summary>
         /// преобразования какого-либо объекта в поток байтов
         /// </summary>
         /// <param name="data">Данные контактов</param>
-
         /// <param name="filePath">Расположение файла</param>
         public static void SaveToFile(Project data, string filePath)
         {
@@ -80,6 +79,5 @@ namespace ContactsApp1
                 return new Project();
             }
         }
-
     }
 }

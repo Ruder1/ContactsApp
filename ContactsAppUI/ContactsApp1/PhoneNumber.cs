@@ -11,11 +11,12 @@ namespace ContactsApp1
     /// </summary>
     public class PhoneNumber
     {
-        /// <summary>
 
+        /// <summary>
         /// Поле номер телефона
         /// </summary>
         private string _phoneNumber;
+
         /// <summary>
         /// Чтение и запись номера телефона
         /// </summary>

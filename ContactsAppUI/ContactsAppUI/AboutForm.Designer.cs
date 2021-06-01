@@ -124,7 +124,7 @@ namespace ContactsAppUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(484, 361);
             this.Controls.Add(this.GithubLinkLabel);
             this.Controls.Add(this.EmailLinkLabel);
@@ -140,7 +140,7 @@ namespace ContactsAppUI
             this.MinimumSize = new System.Drawing.Size(500, 400);
             this.Name = "AboutForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AboutForm";
+            this.Text = "About ContactsApp";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,9 +10,9 @@ namespace ContactsApp1
     /// <summary>
     /// Класс для проверки значений типа string
     /// </summary>
-
     public static class Validator
     {
+
        /// <summary>
        /// Проверка записи строк
        /// </summary>
@@ -23,7 +23,7 @@ namespace ContactsApp1
             {
                 throw new ArgumentException("Вы ввели пустую строку.");
             }
-
+            //TODO: Исправить общий вывод сделать только для 1
             if (value.Length > 50)
             {
                 throw new ArgumentException("Длина имени, фамилии и e-mail" +
