@@ -105,16 +105,15 @@ namespace ContactsAppUI
         {
             //TODO: Изменить панель:Сделать так чтобы когда ни у кого не было день рождения панель не появлялась
             _birthdayContact = _project.SearchBirthdayContacts();
-            if (_birthdayContact.Count == 0)
-            {
-                DateOfBirthPanel.Visible = false;
-            }
-
-            else
+            if (_birthdayContact.Count != 0)
             {
                 DateOfBirthPanel.Visible = true;
                 string birthdayStringList = string.Join(", ", _birthdayContact);
                 TodayBirthLabel.Text = "Today they celebrate their birthday \n" + birthdayStringList;
+            }
+            else
+            {
+                DateOfBirthPanel.Visible = false;
             }
         }
 

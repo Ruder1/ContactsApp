@@ -26,8 +26,7 @@ namespace ContactsApp1
             //TODO: Исправить общий вывод сделать только для 1
             if (value.Length > 50)
             {
-                throw new ArgumentException("Длина имени, фамилии и e-mail" +
-                                            " должно быть меньше 50 символов.");
+                throw new ArgumentException("Длина выделенного красным текста должна быть меньше 50 символов.");
             }
         }
     }

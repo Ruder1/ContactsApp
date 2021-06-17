@@ -38,12 +38,12 @@ namespace ContactsApp1
 
                 if (value.Length != 11)
                 {
-                    throw new ArgumentException("Номер должен состоять ровно из 11 цифр");
+                    throw new ArgumentException("The number must consist of exactly 11 digits");
                 }
 
                 if (value[0] != '7')
                 {
-                    throw new ArgumentException("Код страны должен равнятся 7");
+                    throw new ArgumentException("The country code must be 7");
                 }
                 _phoneNumber = value;
             }

@@ -86,8 +86,8 @@ namespace ContactsApp1
                 if (value > DateTime.Today || value <= date1)
                 {
                     throw new ArgumentException(
-                        $"Дата рождения не должна быть раньше 01.01.1900 и позже " +
-                        $"сегодня: -{DateTime.Today}");
+                        $"The date of birth must not be earlier than 01.01.1900 or later than " +
+                        $"today: -{DateTime.Today}");
                 }
 
                 _dateOfBirth = value;
@@ -119,12 +119,12 @@ namespace ContactsApp1
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("Вы ввели пустую строку.");
+                    throw new ArgumentException("You entered an empty string.");
                 }
 
                 if (value.Length > 15)
                 {
-                    throw new ArgumentException("Длина id  должна быть меньше 15 символов.");
+                    throw new ArgumentException("The id must be less than 15 characters long.");
                 }
 
                 _idVkontakte = value;

@@ -95,7 +95,6 @@ namespace ContactsAppUI
             }
             catch (ArgumentException exception)
             {
-                //TODO: Запретить ввод еще больше строк когда загорается красным для всех исключений
                 SurnameTextBox.BackColor = _incorrectBackColor;
             }
         }
@@ -113,23 +112,10 @@ namespace ContactsAppUI
             }
         }
 
-        private void BirthDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Contact.DateOfBirth = BirthDateTimePicker.Value;
-                BirthDateTimePicker.BackColor = _correctBackColor;
-            }
-            catch (ArgumentException exception)
-            {
-                BirthDateTimePicker.BackColor = _incorrectBackColor;
-            }
-        }
-
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             try
-            {
+            { 
                 Contact.Email = EmailTextBox.Text;
                 EmailTextBox.BackColor = _correctBackColor;
             }
@@ -143,7 +129,7 @@ namespace ContactsAppUI
         {
             try
             {
-                Contact.Email = EmailTextBox.Text;
+                Contact.IdVkontake = IDVkTextBox.Text;
                 IDVkTextBox.BackColor = _correctBackColor;
             }
             catch (ArgumentException exception)

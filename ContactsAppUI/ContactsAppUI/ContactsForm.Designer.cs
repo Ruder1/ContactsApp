@@ -106,6 +106,7 @@ namespace ContactsAppUI
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.Size = new System.Drawing.Size(282, 20);
             this.SurnameTextBox.TabIndex = 14;
+            this.SurnameTextBox.MaxLength = 51;
             this.SurnameTextBox.TextChanged += new System.EventHandler(this.SurnameTextBox_TextChanged);
             // 
             // NameTextBox
@@ -114,6 +115,7 @@ namespace ContactsAppUI
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(282, 20);
             this.NameTextBox.TabIndex = 15;
+            this.NameTextBox.MaxLength = 51;
             this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // EmailTextBox
@@ -122,6 +124,7 @@ namespace ContactsAppUI
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(282, 20);
             this.EmailTextBox.TabIndex = 17;
+            this.EmailTextBox.MaxLength = 51;
             this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // IDVkTextBox
@@ -130,6 +133,7 @@ namespace ContactsAppUI
             this.IDVkTextBox.Name = "IDVkTextBox";
             this.IDVkTextBox.Size = new System.Drawing.Size(282, 20);
             this.IDVkTextBox.TabIndex = 18;
+            this.IDVkTextBox.MaxLength = 16;
             this.IDVkTextBox.TextChanged += new System.EventHandler(this.IDVkTextBox_TextChanged);
             // 
             // BirthDateTimePicker
