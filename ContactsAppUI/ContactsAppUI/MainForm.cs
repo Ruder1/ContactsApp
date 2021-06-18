@@ -23,7 +23,7 @@ namespace ContactsAppUI
         /// <summary>
         /// Контакты у которых день рождение
         /// </summary>
-        private List<string> _birthdayContact = new List<string>();
+        private List<string> _birthdaySurnames= new List<string>();
 
         public MainForm()
         {
@@ -53,10 +53,7 @@ namespace ContactsAppUI
                 ContactsListBox.Items.Insert(selectedIndex, updatedContact.Surname);
                 ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
-
-            ContactsListBox.ClearSelected();
-            SurnameTextBox.Text = NameTextBox.Text = EMailTextBox.Text = IdVkTextBox.Text = PhoneTextBox.Text = null;
-            BirthDateTimePicker.Value=DateTime.Today;
+            SearchBirthdayContacts();
         }
 
         /// <summary>
@@ -96,6 +93,7 @@ namespace ContactsAppUI
                 _project.ContactLists.RemoveAt(selectedIndex);
                 ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
+            SearchBirthdayContacts();
         }
 
         /// <summary>
@@ -103,12 +101,11 @@ namespace ContactsAppUI
         /// </summary>
         private void SearchBirthdayContacts()
         {
-            //TODO: Изменить панель:Сделать так чтобы когда ни у кого не было день рождения панель не появлялась
-            _birthdayContact = _project.SearchBirthdayContacts();
-            if (_birthdayContact.Count != 0)
+            _birthdaySurnames = _project.SearchBirthdayContacts();
+            if (_birthdaySurnames.Count != 0)
             {
                 DateOfBirthPanel.Visible = true;
-                string birthdayStringList = string.Join(", ", _birthdayContact);
+                string birthdayStringList = string.Join(", ", _birthdaySurnames);
                 TodayBirthLabel.Text = "Today they celebrate their birthday \n" + birthdayStringList;
             }
             else
@@ -153,7 +150,7 @@ namespace ContactsAppUI
             SurnameTextBox.Text = contact.Surname;
             NameTextBox.Text = contact.Name;
             PhoneTextBox.Text = contact.PhoneNumber.NumberPhone;
-            BirthDateTimePicker.Value = contact.DateOfBirth;
+            DateOfBirthTimePicker.Value = contact.DateOfBirth;
             EMailTextBox.Text = contact.Email;
             IdVkTextBox.Text = contact.IdVkontake;
         }
@@ -211,18 +208,5 @@ namespace ContactsAppUI
             SearchBirthdayContacts();
         }
 
-        private void splitContainer1_Panel2_MouseClick(object sender, MouseEventArgs e)
-        {
-            ContactsListBox.ClearSelected();
-            SurnameTextBox.Text = NameTextBox.Text = EMailTextBox.Text = IdVkTextBox.Text = PhoneTextBox.Text = null;
-            BirthDateTimePicker.Value = DateTime.Today;
-        }
-
-        private void ContactsListBox_DoubleClick(object sender, EventArgs e)
-        {
-            ContactsListBox.ClearSelected();
-            SurnameTextBox.Text = NameTextBox.Text = EMailTextBox.Text = IdVkTextBox.Text = PhoneTextBox.Text = null;
-            BirthDateTimePicker.Value = DateTime.Today;
-        }
     }
 }

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContactsApp1;
 
@@ -46,7 +40,7 @@ namespace ContactsAppUI
                 SurnameTextBox.Text = _contact.Surname;
                 NameTextBox.Text = _contact.Name;
                 PhoneNumberTextBox.Text = _contact.PhoneNumber.NumberPhone;
-                BirthDateTimePicker.Value = _contact.DateOfBirth;
+                DateOfBirthTimePicker.Value = _contact.DateOfBirth;
                 EmailTextBox.Text = _contact.Email;
                 IDVkTextBox.Text = _contact.IdVkontake;
             }
@@ -68,7 +62,7 @@ namespace ContactsAppUI
                 Contact.Surname = SurnameTextBox.Text;
                 Contact.Name = NameTextBox.Text;
                 Contact.PhoneNumber.NumberPhone = numberPhone;
-                Contact.DateOfBirth = BirthDateTimePicker.Value;
+                Contact.DateOfBirth = DateOfBirthTimePicker.Value;
                 Contact.Email = EmailTextBox.Text;
                 Contact.IdVkontake = IDVkTextBox.Text;
                 DialogResult = DialogResult.OK;

@@ -40,7 +40,7 @@ namespace ContactsAppUI
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.IDVkTextBox = new System.Windows.Forms.TextBox();
-            this.BirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.CancelButton = new System.Windows.Forms.Button();
             this.OKButton = new System.Windows.Forms.Button();
             this.PhoneNumberTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -76,11 +76,11 @@ namespace ContactsAppUI
             // BirthLabel
             // 
             this.BirthLabel.AutoSize = true;
-            this.BirthLabel.Location = new System.Drawing.Point(35, 67);
+            this.BirthLabel.Location = new System.Drawing.Point(18, 70);
             this.BirthLabel.Name = "BirthLabel";
-            this.BirthLabel.Size = new System.Drawing.Size(52, 13);
+            this.BirthLabel.Size = new System.Drawing.Size(69, 13);
             this.BirthLabel.TabIndex = 10;
-            this.BirthLabel.Text = "Birthdate:";
+            this.BirthLabel.Text = "Date of Birth:";
             // 
             // NameLabel
             // 
@@ -103,48 +103,48 @@ namespace ContactsAppUI
             // SurnameTextBox
             // 
             this.SurnameTextBox.Location = new System.Drawing.Point(93, 12);
+            this.SurnameTextBox.MaxLength = 51;
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.Size = new System.Drawing.Size(282, 20);
             this.SurnameTextBox.TabIndex = 14;
-            this.SurnameTextBox.MaxLength = 51;
             this.SurnameTextBox.TextChanged += new System.EventHandler(this.SurnameTextBox_TextChanged);
             // 
             // NameTextBox
             // 
             this.NameTextBox.Location = new System.Drawing.Point(93, 38);
+            this.NameTextBox.MaxLength = 51;
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(282, 20);
             this.NameTextBox.TabIndex = 15;
-            this.NameTextBox.MaxLength = 51;
             this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // EmailTextBox
             // 
             this.EmailTextBox.Location = new System.Drawing.Point(93, 90);
+            this.EmailTextBox.MaxLength = 51;
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(282, 20);
             this.EmailTextBox.TabIndex = 17;
-            this.EmailTextBox.MaxLength = 51;
             this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // IDVkTextBox
             // 
             this.IDVkTextBox.Location = new System.Drawing.Point(93, 116);
+            this.IDVkTextBox.MaxLength = 16;
             this.IDVkTextBox.Name = "IDVkTextBox";
             this.IDVkTextBox.Size = new System.Drawing.Size(282, 20);
             this.IDVkTextBox.TabIndex = 18;
-            this.IDVkTextBox.MaxLength = 16;
             this.IDVkTextBox.TextChanged += new System.EventHandler(this.IDVkTextBox_TextChanged);
             // 
-            // BirthDateTimePicker
+            // DateOfBirthTimePicker
             // 
-            this.BirthDateTimePicker.Location = new System.Drawing.Point(93, 64);
-            this.BirthDateTimePicker.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
-            this.BirthDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.BirthDateTimePicker.Name = "BirthDateTimePicker";
-            this.BirthDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.BirthDateTimePicker.TabIndex = 20;
-            this.BirthDateTimePicker.Value = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
+            this.DateOfBirthTimePicker.Location = new System.Drawing.Point(93, 64);
+            this.DateOfBirthTimePicker.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
+            this.DateOfBirthTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
+            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.DateOfBirthTimePicker.TabIndex = 20;
+            this.DateOfBirthTimePicker.Value = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
             // 
             // CancelButton
             // 
@@ -181,7 +181,7 @@ namespace ContactsAppUI
             this.Controls.Add(this.PhoneNumberTextBox);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.BirthDateTimePicker);
+            this.Controls.Add(this.DateOfBirthTimePicker);
             this.Controls.Add(this.IDVkTextBox);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.NameTextBox);
@@ -216,7 +216,7 @@ namespace ContactsAppUI
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox IDVkTextBox;
-        private System.Windows.Forms.DateTimePicker BirthDateTimePicker;
+        private System.Windows.Forms.DateTimePicker DateOfBirthTimePicker;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.MaskedTextBox PhoneNumberTextBox;

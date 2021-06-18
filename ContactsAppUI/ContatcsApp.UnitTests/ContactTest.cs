@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace ContactsApp.UnitTests
 {
-    public class ContactTests
+    public class ContactTest
     {
 
     }

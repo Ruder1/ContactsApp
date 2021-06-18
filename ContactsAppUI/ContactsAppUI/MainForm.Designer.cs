@@ -42,7 +42,7 @@
             this.EMailTextBox = new System.Windows.Forms.TextBox();
             this.IdVkTextBox = new System.Windows.Forms.TextBox();
             this.PhoneTextBox = new System.Windows.Forms.TextBox();
-            this.BirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,8 +56,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.AddButton = new System.Windows.Forms.Button();
-            this.EditButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.EditButton = new System.Windows.Forms.Button();
             this.DateOfBirthPanel = new System.Windows.Forms.Panel();
             this.TodayBirthLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -90,11 +90,11 @@
             // DateOfBirthLabel
             // 
             this.DateOfBirthLabel.AutoSize = true;
-            this.DateOfBirthLabel.Location = new System.Drawing.Point(24, 58);
+            this.DateOfBirthLabel.Location = new System.Drawing.Point(20, 61);
             this.DateOfBirthLabel.Name = "DateOfBirthLabel";
-            this.DateOfBirthLabel.Size = new System.Drawing.Size(68, 13);
+            this.DateOfBirthLabel.Size = new System.Drawing.Size(69, 13);
             this.DateOfBirthLabel.TabIndex = 4;
-            this.DateOfBirthLabel.Text = "Date of birth:";
+            this.DateOfBirthLabel.Text = "Date of Birth:";
             // 
             // EmailLabel
             // 
@@ -193,17 +193,17 @@
             this.PhoneTextBox.Size = new System.Drawing.Size(221, 20);
             this.PhoneTextBox.TabIndex = 19;
             // 
-            // BirthDateTimePicker
+            // DateOfBirthTimePicker
             // 
-            this.BirthDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.DateOfBirthTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BirthDateTimePicker.Enabled = false;
-            this.BirthDateTimePicker.Location = new System.Drawing.Point(95, 55);
-            this.BirthDateTimePicker.MaxDate = new System.DateTime(2025, 12, 22, 0, 0, 0, 0);
-            this.BirthDateTimePicker.MinDate = new System.DateTime(1901, 1, 1, 0, 0, 0, 0);
-            this.BirthDateTimePicker.Name = "BirthDateTimePicker";
-            this.BirthDateTimePicker.Size = new System.Drawing.Size(144, 20);
-            this.BirthDateTimePicker.TabIndex = 20;
+            this.DateOfBirthTimePicker.Enabled = false;
+            this.DateOfBirthTimePicker.Location = new System.Drawing.Point(95, 55);
+            this.DateOfBirthTimePicker.MaxDate = new System.DateTime(2025, 12, 22, 0, 0, 0, 0);
+            this.DateOfBirthTimePicker.MinDate = new System.DateTime(1901, 1, 1, 0, 0, 0, 0);
+            this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
+            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(144, 20);
+            this.DateOfBirthTimePicker.TabIndex = 20;
             // 
             // ContactsListBox
             // 
@@ -216,10 +216,9 @@
             this.ContactsListBox.MaximumSize = new System.Drawing.Size(800, 1000);
             this.ContactsListBox.MinimumSize = new System.Drawing.Size(100, 100);
             this.ContactsListBox.Name = "ContactsListBox";
-            this.ContactsListBox.Size = new System.Drawing.Size(177, 359);
+            this.ContactsListBox.Size = new System.Drawing.Size(177, 362);
             this.ContactsListBox.TabIndex = 11;
             this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
-            this.ContactsListBox.DoubleClick += new System.EventHandler(this.ContactsListBox_DoubleClick);
             // 
             // menuStrip1
             // 
@@ -306,10 +305,10 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer1.Panel1.Controls.Add(this.FindTextBox);
             this.splitContainer1.Panel1.Controls.Add(this.FindLabel);
             this.splitContainer1.Panel1.Controls.Add(this.ContactsListBox);
-            this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
             // 
             // splitContainer1.Panel2
             // 
@@ -317,7 +316,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.PhoneTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.SurnameTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.NameTextBox);
-            this.splitContainer1.Panel2.Controls.Add(this.BirthDateTimePicker);
+            this.splitContainer1.Panel2.Controls.Add(this.DateOfBirthTimePicker);
             this.splitContainer1.Panel2.Controls.Add(this.IdVkLabel);
             this.splitContainer1.Panel2.Controls.Add(this.IdVkTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.EmailLabel);
@@ -326,14 +325,12 @@
             this.splitContainer1.Panel2.Controls.Add(this.PhoneLabel);
             this.splitContainer1.Panel2.Controls.Add(this.NameLabel);
             this.splitContainer1.Panel2.Controls.Add(this.SurnameLabel);
-            this.splitContainer1.Panel2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_Panel2_MouseClick);
             this.splitContainer1.Size = new System.Drawing.Size(554, 434);
             this.splitContainer1.SplitterDistance = 203;
             this.splitContainer1.TabIndex = 23;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -341,50 +338,50 @@
             this.tableLayoutPanel1.Controls.Add(this.AddButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.EditButton, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.RemoveButton, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 391);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 394);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(93, 31);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(91, 26);
             this.tableLayoutPanel1.TabIndex = 25;
             // 
             // AddButton
             // 
+            this.AddButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddButton.BackgroundImage")));
             this.AddButton.FlatAppearance.BorderSize = 0;
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AddButton.Location = new System.Drawing.Point(3, 3);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(24, 25);
+            this.AddButton.Size = new System.Drawing.Size(20, 20);
             this.AddButton.TabIndex = 9;
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // EditButton
-            // 
-            this.EditButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.EditButton.FlatAppearance.BorderSize = 0;
-            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditButton.Image = ((System.Drawing.Image)(resources.GetObject("EditButton.Image")));
-            this.EditButton.Location = new System.Drawing.Point(33, 3);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(24, 25);
-            this.EditButton.TabIndex = 24;
-            this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
-            // 
             // RemoveButton
             // 
+            this.RemoveButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RemoveButton.BackgroundImage")));
             this.RemoveButton.FlatAppearance.BorderSize = 0;
             this.RemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveButton.Image")));
             this.RemoveButton.Location = new System.Drawing.Point(63, 3);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(24, 25);
+            this.RemoveButton.Size = new System.Drawing.Size(20, 20);
             this.RemoveButton.TabIndex = 10;
             this.RemoveButton.UseVisualStyleBackColor = true;
             this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
+            // 
+            // EditButton
+            // 
+            this.EditButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditButton.BackgroundImage")));
+            this.EditButton.FlatAppearance.BorderSize = 0;
+            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditButton.Location = new System.Drawing.Point(33, 3);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(20, 20);
+            this.EditButton.TabIndex = 24;
+            this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // DateOfBirthPanel
             // 
@@ -445,7 +442,6 @@
         private System.Windows.Forms.Label IdVkLabel;
         private System.Windows.Forms.Label PhoneLabel;
         private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Label FindLabel;
         private System.Windows.Forms.TextBox FindTextBox;
         private System.Windows.Forms.TextBox SurnameTextBox;
@@ -453,7 +449,7 @@
         private System.Windows.Forms.TextBox EMailTextBox;
         private System.Windows.Forms.TextBox IdVkTextBox;
         private System.Windows.Forms.TextBox PhoneTextBox;
-        private System.Windows.Forms.DateTimePicker BirthDateTimePicker;
+        private System.Windows.Forms.DateTimePicker DateOfBirthTimePicker;
         private System.Windows.Forms.ListBox ContactsListBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -467,9 +463,9 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel DateOfBirthPanel;
         private System.Windows.Forms.Button EditButton;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label TodayBirthLabel;
-
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button RemoveButton;
     }
 }
 
