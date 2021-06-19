@@ -75,10 +75,9 @@ namespace ContactsApp1
         {
             get
             {
-
                 return _dateOfBirth;
-
             }
+
             set
             {
                 var date1 = new DateTime(1900, 01, 01);
@@ -147,7 +146,6 @@ namespace ContactsApp1
             Surname = surname;
             Name = name;
             PhoneNumber.NumberPhone= phoneNumber;
-
             DateOfBirth = dateOfBirth;
             Email = email;
             IdVkontake = idVkontakte;

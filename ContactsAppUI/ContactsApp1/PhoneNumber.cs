@@ -32,7 +32,7 @@ namespace ContactsApp1
 
                     if (!char.IsDigit(var))
                     {
-                        throw new ArgumentException("Строка должна содержать только цифры");
+                        throw new ArgumentException("The string must contain only numbers");
                     }
                 }
 

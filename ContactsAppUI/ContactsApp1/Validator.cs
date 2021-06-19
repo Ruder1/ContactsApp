@@ -12,8 +12,7 @@ namespace ContactsApp1
     /// </summary>
     public static class Validator
     {
-
-       /// <summary>
+        /// <summary>
        /// Проверка записи строк
        /// </summary>
        /// <param name="value"></param>
@@ -21,12 +20,11 @@ namespace ContactsApp1
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new ArgumentException("Вы ввели пустую строку.");
+                throw new ArgumentException("You entered an empty string.");
             }
-            //TODO: Исправить общий вывод сделать только для 1
             if (value.Length > 50)
             {
-                throw new ArgumentException("Длина выделенного красным текста должна быть меньше 50 символов.");
+                throw new ArgumentException("The length of the text highlighted in red must be less than 50 characters.");
             }
         }
     }
