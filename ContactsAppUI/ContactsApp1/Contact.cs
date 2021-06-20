@@ -161,6 +161,30 @@ namespace ContactsApp1
         }
 
         /// <summary>
+        /// Сравнение полей
+        /// </summary>
+        /// <param name="other">входное поле</param>
+        /// <returns></returns>
+        public bool Equals(Contact other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return _surname == other._surname &&
+                   _name == other._name &&
+                   _dateOfBirth.Equals(other._dateOfBirth) &&
+                   _email == other._email &&
+                   _idVkontakte == other._idVkontakte && Equals(PhoneNumber, other.PhoneNumber);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Contact)obj);
+        }
+
+        /// <summary>
         /// Клонирование объекта контакт
         /// </summary>
         /// <returns></returns>

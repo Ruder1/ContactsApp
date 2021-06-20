@@ -23,7 +23,7 @@ namespace ContactsApp1
             get
             {
                 var appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var path = appDataFolder + @"\ContactsApp\contact.json";
+                var path = appDataFolder + @"\Pogorelov\ContactsApp\contact.json";
                 return path;
             }
         }
@@ -58,15 +58,15 @@ namespace ContactsApp1
         /// <returns> Возвращает переменную содеражащую данные Contact</returns>
         public static Project LoadFile(string filePath)
         {
-            Project project = null;
             JsonSerializer serializer = new JsonSerializer();
 
             try
             {
+                Project project = null;
                 using (StreamReader streamReader = new StreamReader(filePath))
                 using (JsonReader reader = new JsonTextReader(streamReader))
                 {
-                    project = (Project)serializer.Deserialize<Project>(reader);
+                    project = serializer.Deserialize<Project>(reader);
                     if (project.ContactLists.Capacity == 0)
                     {
                         project = new Project();

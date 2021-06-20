@@ -49,5 +49,25 @@ namespace ContactsApp1
             }
         }
 
+        /// <summary>
+        /// Сравнение номера телефона
+        /// </summary>
+        /// <param name="other">Входной номер телефона</param>
+        /// <returns></returns>
+        public bool Equals(PhoneNumber other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return _phoneNumber == other._phoneNumber;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((PhoneNumber)obj);
+        }
+
     }
 }
