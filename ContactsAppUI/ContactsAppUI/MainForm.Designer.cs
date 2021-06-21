@@ -380,8 +380,9 @@
             this.MaskedPhoneNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MaskedPhoneNumberTextBox.Location = new System.Drawing.Point(95, 133);
-            this.MaskedPhoneNumberTextBox.Mask = "7(000) 000-00 00";
+            this.MaskedPhoneNumberTextBox.Mask = "7 (000) 000-00 00";
             this.MaskedPhoneNumberTextBox.Name = "MaskedPhoneNumberTextBox";
+            this.MaskedPhoneNumberTextBox.ReadOnly = true;
             this.MaskedPhoneNumberTextBox.Size = new System.Drawing.Size(218, 20);
             this.MaskedPhoneNumberTextBox.TabIndex = 24;
             // 
