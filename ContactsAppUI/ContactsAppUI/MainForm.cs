@@ -25,6 +25,10 @@ namespace ContactsAppUI
         /// </summary>
         private List<string> _birthdaySurnames= new List<string>();
 
+        /// <summary>
+        /// Список контактов хранит контакты после поиска
+        /// </summary>
+        private List<Contact> _viewingListContacts = new List<Contact>();
         public MainForm()
         {
             InitializeComponent();
@@ -42,18 +46,25 @@ namespace ContactsAppUI
             }
 
             var selectedData = _project.ContactLists[selectedIndex];
+            if (ContactsListBox.Items.Count != _project.ContactLists.Count)
+            {
+                selectedData = _viewingListContacts[selectedIndex];
+            }
             var editContact = new ContactForm { Contact = selectedData };
             editContact.ShowDialog();
             if (editContact.DialogResult == DialogResult.OK)
             {
                 var updatedContact = editContact.Contact;
+                var updatedContactIndex = _project.ContactLists.IndexOf(selectedData);
+                _project.ContactLists.RemoveAt(updatedContactIndex);
+                _project.ContactLists.Insert(updatedContactIndex, updatedContact);
+
                 ContactsListBox.Items.RemoveAt(selectedIndex);
-                _project.ContactLists.RemoveAt(selectedIndex);
-                _project.ContactLists.Insert(selectedIndex, updatedContact);
-                ContactsListBox.Items.Insert(selectedIndex, updatedContact.Surname);
+                ContactsListBox.Items.Insert(selectedIndex, updatedContact.Surname); ;
+
                 ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
+                UpdateTextBoxes(updatedContactIndex);
             }
-            SearchBirthdayContacts();
         }
 
         /// <summary>
@@ -70,7 +81,6 @@ namespace ContactsAppUI
                 ContactsListBox.Items.Add(newContact.Surname);
             }
             ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
-            SearchBirthdayContacts();
         }
 
         /// <summary>
@@ -83,8 +93,13 @@ namespace ContactsAppUI
             {
                 return;
             }
+            var selectedData = _project.ContactLists[selectedIndex];
+            if (ContactsListBox.Items.Count != _project.ContactLists.Count)
+            {
+                selectedData = _viewingListContacts[selectedIndex];
+            }
             var result = MessageBox.Show("Do you really want to delete a contact: " +
-                                         _project.ContactLists[selectedIndex].Surname + "?",
+                                         selectedData.Surname + "?",
                 "Deleting a сontact", MessageBoxButtons.OKCancel,
                 MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
@@ -93,9 +108,22 @@ namespace ContactsAppUI
                 _project.ContactLists.RemoveAt(selectedIndex);
                 ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
-            SearchBirthdayContacts();
         }
 
+        /// <summary>
+        /// Метод обновляет все значения в TextBox
+        /// </summary>
+        /// <param name="index"></param>
+        private void UpdateTextBoxes(int index)
+        {
+            var contact = _project.ContactLists[index];
+            SurnameTextBox.Text = contact.Surname;
+            NameTextBox.Text = contact.Name;
+            MaskedPhoneNumberTextBox.Text = contact.PhoneNumber.NumberPhone;
+            DateOfBirthTimePicker.Value = contact.DateOfBirth;
+            EMailTextBox.Text = contact.Email;
+            IdVkTextBox.Text = contact.IdVkontake;
+        }
         /// <summary>
         /// Функция поиска из списка контактов у которых сегодня день рождение
         /// </summary>
@@ -114,27 +142,50 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// Сортировка списка контактов
+        /// </summary>
+        private void SortProject()
+        {
+            _project.ContactLists = _project.SortProject();
+        }
+
+        /// <summary>
+        /// Сортировка списка контактов после поиска по подстроке
+        /// </summary>
+        private void SortSubstringFindProject()
+        {
+         List<Contact> _viewingListContacts = new List<Contact>();
+        _viewingListContacts.Clear();
+            _viewingListContacts = _project.SortProject(FindTextBox.Text);
+
+            ContactsListBox.Items.Clear();
+            for (int i = 0; i < _viewingListContacts.Count; i++)
+            {
+                ContactsListBox.Items.Add(_viewingListContacts[i].Surname);
+            }
+
+        }
+
+        /// <summary>
+        /// Метод заполняет ContactsListBox контактами
+        /// </summary>
+        private void FillContactsListBox()
+        {
+            ContactsListBox.Items.Clear();
+            foreach (var contact in _project.ContactLists)
+            {
+                ContactsListBox.Items.Add(contact.Surname);
+            }
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             _project.ContactLists.Clear();
             ContactsListBox.Items.Clear();
             _project = ProjectManager.LoadFile(ProjectManager.DefaultPath);
-            foreach (var contact in _project.ContactLists)
-            {
-                ContactsListBox.Items.Add(contact.Surname);
-            }
-            SearchBirthdayContacts();
-        }
-
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-            AddContact();
-            SearchBirthdayContacts();
-        }
-
-        private void RemoveButton_Click(object sender, EventArgs e)
-        {
-            RemoveContact();
+            SortProject();
+            FillContactsListBox();
             SearchBirthdayContacts();
         }
 
@@ -146,10 +197,13 @@ namespace ContactsAppUI
                 return;
             }
             var contact = _project.ContactLists[selectedIndex];
-
+            if (ContactsListBox.Items.Count != _project.ContactLists.Count)
+            {
+                contact = _viewingListContacts[selectedIndex];
+            }
             SurnameTextBox.Text = contact.Surname;
             NameTextBox.Text = contact.Name;
-            PhoneTextBox.Text = contact.PhoneNumber.NumberPhone;
+            MaskedPhoneNumberTextBox.Text = contact.PhoneNumber.NumberPhone;
             DateOfBirthTimePicker.Value = contact.DateOfBirth;
             EMailTextBox.Text = contact.Email;
             IdVkTextBox.Text = contact.IdVkontake;
@@ -157,19 +211,7 @@ namespace ContactsAppUI
 
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
-            ContactsListBox.Items.Clear();
-            foreach (var contact in _project.ContactLists)
-            {
-                if (FindTextBox.Text == contact.Surname)
-                {
-                    ContactsListBox.Items.Add(contact.Surname);
-                }
-                else if (FindTextBox.Text == "")
-                {
-                    ContactsListBox.Items.Add(contact.Surname);
-                }
-            }
-           
+            SortSubstringFindProject();
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -178,21 +220,43 @@ namespace ContactsAppUI
             this.Close();
         }
 
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddContact();
+            SortProject();
+            FillContactsListBox();
+            SearchBirthdayContacts();
+        }
+
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            RemoveContact();
+            SortProject();
+            FillContactsListBox();
+            SearchBirthdayContacts();
+        }
+
         private void AddContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddContact();
+            SortProject();
+            FillContactsListBox();
             SearchBirthdayContacts();
         }
 
         private void EditContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditContact();
+            SortProject();
+            FillContactsListBox();
             SearchBirthdayContacts();
         }
 
         private void RemoveContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RemoveContact();
+            SortProject();
+            FillContactsListBox();
             SearchBirthdayContacts();
         }
 
@@ -205,6 +269,8 @@ namespace ContactsAppUI
         private void EditButton_Click(object sender, EventArgs e)
         {
             EditContact();
+            SortProject();
+            FillContactsListBox();
             SearchBirthdayContacts();
         }
 

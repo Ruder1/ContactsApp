@@ -7,7 +7,6 @@ namespace ContactsApp.UnitTests
     [TestFixture]
     public class ContactTest
     {
-
         [TestCase("", "An exception should be thrown if the surname is an empty string",
             TestName = "Assigning an empty string as a surname")]
         [TestCase("Smith-Smith-Smith-Smith-Smith-Smith-Smith-Smith-Smith-Smith", "There should be " +
@@ -24,7 +23,6 @@ namespace ContactsApp.UnitTests
                 message);
         }
 
-
         [TestCase(TestName = "Assigning the correct surname")]
         public void Surname_CorrectValue_SetSameValue()
         {
@@ -39,7 +37,6 @@ namespace ContactsApp.UnitTests
             //Assert
             Assert.AreEqual(expected, actual, "The values are the same");
         }
-
 
         [TestCase(TestName = "Surname getter positive test")]
         public void Surname_CorrectValue_ReturnsSameValue()
@@ -58,7 +55,6 @@ namespace ContactsApp.UnitTests
             Assert.AreEqual(expected, actual, "Getter Surname returns wrong surname");
         }
 
-
         [TestCase("", "An exception should be thrown if name is an empty string",
             TestName = "Assigning empty string as a name")]
         [TestCase("Smith-Smith-Smith-Smith-Smith-Smith-Smith-Smith-Smith-Smith",
@@ -75,7 +71,6 @@ namespace ContactsApp.UnitTests
                 message);
         }
 
-
         [TestCase("Smith",
             TestName = "Assigning the correct name")]
         public void Name_CorrectValue_SetSameValue(string expected)
@@ -91,7 +86,6 @@ namespace ContactsApp.UnitTests
             Assert.AreEqual(expected, actual, "The values are the same");
         }
 
-
         [TestCase(TestName = "Name getter positive test")]
         public void Name_CorrectValue_ReturnsSameValue()
         {
@@ -106,7 +100,6 @@ namespace ContactsApp.UnitTests
             //Assert
             Assert.AreEqual(expected, actual, "Getter Name returns wrong surname");
         }
-
 
         [TestCase("1899.12.31", "An exception should be thrown if " +
                                 "the Birthday is earlier than 01/01/1900",
@@ -124,7 +117,6 @@ namespace ContactsApp.UnitTests
                 () => { contact.DateOfBirth = wrongBirthday; },
                 message);
         }
-
 
         [TestCase("2000.01.01",
             TestName = "Assigning the correct Birthday")]

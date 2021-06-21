@@ -56,7 +56,7 @@ namespace ContactsAppUI
             //Убирает из поля PhoneNumber лишние символы - Конвертирует из 7(999)999-9999 в 79999999999
             var numberPhone = PhoneNumberTextBox.Text.Replace("(", "").
                 Replace(")", "").
-                Replace("-", "").Replace("_","");
+                Replace("-", "").Replace(" ","");
             try
             {
                 Contact.Surname = SurnameTextBox.Text;

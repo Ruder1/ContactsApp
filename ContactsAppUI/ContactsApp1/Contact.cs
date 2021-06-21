@@ -9,7 +9,6 @@ namespace ContactsApp1
     /// <summary>
     /// Класс создания контакта
     /// </summary>
-
     public class Contact : ICloneable
     {
 
@@ -138,7 +137,7 @@ namespace ContactsApp1
         /// <param name="phoneNumber">Номер телефона</param>
         /// <param name="dateOfBirth">Дата рождения</param>
         /// <param name="email">Эл Почта</param>
-        /// <param name="idVkontake">ID Вконтакте</param>
+        /// <param name="idVkontakte">ID Вконтакте</param>
         public Contact(string surname, string name, string phoneNumber,
             DateTime dateOfBirth, string email, string idVkontakte)
 

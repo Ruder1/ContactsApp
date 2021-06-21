@@ -41,7 +41,6 @@
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.EMailTextBox = new System.Windows.Forms.TextBox();
             this.IdVkTextBox = new System.Windows.Forms.TextBox();
-            this.PhoneTextBox = new System.Windows.Forms.TextBox();
             this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -58,6 +57,7 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
+            this.MaskedPhoneNumberTextBox = new System.Windows.Forms.MaskedTextBox();
             this.DateOfBirthPanel = new System.Windows.Forms.Panel();
             this.TodayBirthLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -139,7 +139,7 @@
             this.FindTextBox.Location = new System.Drawing.Point(45, 3);
             this.FindTextBox.MaximumSize = new System.Drawing.Size(800, 20);
             this.FindTextBox.Name = "FindTextBox";
-            this.FindTextBox.Size = new System.Drawing.Size(144, 20);
+            this.FindTextBox.Size = new System.Drawing.Size(143, 20);
             this.FindTextBox.TabIndex = 13;
             this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
             // 
@@ -150,7 +150,7 @@
             this.SurnameTextBox.Location = new System.Drawing.Point(95, 3);
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.ReadOnly = true;
-            this.SurnameTextBox.Size = new System.Drawing.Size(221, 20);
+            this.SurnameTextBox.Size = new System.Drawing.Size(218, 20);
             this.SurnameTextBox.TabIndex = 14;
             // 
             // NameTextBox
@@ -160,7 +160,7 @@
             this.NameTextBox.Location = new System.Drawing.Point(95, 29);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.ReadOnly = true;
-            this.NameTextBox.Size = new System.Drawing.Size(221, 20);
+            this.NameTextBox.Size = new System.Drawing.Size(218, 20);
             this.NameTextBox.TabIndex = 15;
             // 
             // EMailTextBox
@@ -170,7 +170,7 @@
             this.EMailTextBox.Location = new System.Drawing.Point(95, 81);
             this.EMailTextBox.Name = "EMailTextBox";
             this.EMailTextBox.ReadOnly = true;
-            this.EMailTextBox.Size = new System.Drawing.Size(221, 20);
+            this.EMailTextBox.Size = new System.Drawing.Size(218, 20);
             this.EMailTextBox.TabIndex = 17;
             // 
             // IdVkTextBox
@@ -180,18 +180,8 @@
             this.IdVkTextBox.Location = new System.Drawing.Point(95, 107);
             this.IdVkTextBox.Name = "IdVkTextBox";
             this.IdVkTextBox.ReadOnly = true;
-            this.IdVkTextBox.Size = new System.Drawing.Size(221, 20);
+            this.IdVkTextBox.Size = new System.Drawing.Size(218, 20);
             this.IdVkTextBox.TabIndex = 18;
-            // 
-            // PhoneTextBox
-            // 
-            this.PhoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhoneTextBox.Location = new System.Drawing.Point(95, 133);
-            this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.ReadOnly = true;
-            this.PhoneTextBox.Size = new System.Drawing.Size(221, 20);
-            this.PhoneTextBox.TabIndex = 19;
             // 
             // DateOfBirthTimePicker
             // 
@@ -202,7 +192,7 @@
             this.DateOfBirthTimePicker.MaxDate = new System.DateTime(2025, 12, 22, 0, 0, 0, 0);
             this.DateOfBirthTimePicker.MinDate = new System.DateTime(1901, 1, 1, 0, 0, 0, 0);
             this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
-            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(144, 20);
+            this.DateOfBirthTimePicker.Size = new System.Drawing.Size(141, 20);
             this.DateOfBirthTimePicker.TabIndex = 20;
             // 
             // ContactsListBox
@@ -216,7 +206,7 @@
             this.ContactsListBox.MaximumSize = new System.Drawing.Size(800, 1000);
             this.ContactsListBox.MinimumSize = new System.Drawing.Size(100, 100);
             this.ContactsListBox.Name = "ContactsListBox";
-            this.ContactsListBox.Size = new System.Drawing.Size(177, 362);
+            this.ContactsListBox.Size = new System.Drawing.Size(176, 357);
             this.ContactsListBox.TabIndex = 11;
             this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
@@ -261,21 +251,22 @@
             // addContactToolStripMenuItem
             // 
             this.addContactToolStripMenuItem.Name = "addContactToolStripMenuItem";
-            this.addContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.addContactToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.addContactToolStripMenuItem.Text = "Add Contact";
             this.addContactToolStripMenuItem.Click += new System.EventHandler(this.AddContactToolStripMenuItem_Click);
             // 
             // editContactToolStripMenuItem
             // 
             this.editContactToolStripMenuItem.Name = "editContactToolStripMenuItem";
-            this.editContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.editContactToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.editContactToolStripMenuItem.Text = "Edit Contact";
             this.editContactToolStripMenuItem.Click += new System.EventHandler(this.EditContactToolStripMenuItem_Click);
             // 
             // removeContactToolStripMenuItem
             // 
             this.removeContactToolStripMenuItem.Name = "removeContactToolStripMenuItem";
-            this.removeContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.removeContactToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.removeContactToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.removeContactToolStripMenuItem.Text = "Remove Contact";
             this.removeContactToolStripMenuItem.Click += new System.EventHandler(this.RemoveContactToolStripMenuItem_Click);
             // 
@@ -312,8 +303,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.MaskedPhoneNumberTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.DateOfBirthPanel);
-            this.splitContainer1.Panel2.Controls.Add(this.PhoneTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.SurnameTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.NameTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.DateOfBirthTimePicker);
@@ -331,6 +322,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -383,6 +375,16 @@
             this.RemoveButton.UseVisualStyleBackColor = true;
             this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
+            // MaskedPhoneNumberTextBox
+            // 
+            this.MaskedPhoneNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MaskedPhoneNumberTextBox.Location = new System.Drawing.Point(95, 133);
+            this.MaskedPhoneNumberTextBox.Mask = "7(000) 000-00 00";
+            this.MaskedPhoneNumberTextBox.Name = "MaskedPhoneNumberTextBox";
+            this.MaskedPhoneNumberTextBox.Size = new System.Drawing.Size(218, 20);
+            this.MaskedPhoneNumberTextBox.TabIndex = 24;
+            // 
             // DateOfBirthPanel
             // 
             this.DateOfBirthPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -391,9 +393,9 @@
             this.DateOfBirthPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DateOfBirthPanel.BackgroundImage")));
             this.DateOfBirthPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.DateOfBirthPanel.Controls.Add(this.TodayBirthLabel);
-            this.DateOfBirthPanel.Location = new System.Drawing.Point(3, 328);
+            this.DateOfBirthPanel.Location = new System.Drawing.Point(3, 323);
             this.DateOfBirthPanel.Name = "DateOfBirthPanel";
-            this.DateOfBirthPanel.Size = new System.Drawing.Size(341, 103);
+            this.DateOfBirthPanel.Size = new System.Drawing.Size(338, 103);
             this.DateOfBirthPanel.TabIndex = 0;
             // 
             // TodayBirthLabel
@@ -448,7 +450,6 @@
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox EMailTextBox;
         private System.Windows.Forms.TextBox IdVkTextBox;
-        private System.Windows.Forms.TextBox PhoneTextBox;
         private System.Windows.Forms.DateTimePicker DateOfBirthTimePicker;
         private System.Windows.Forms.ListBox ContactsListBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -466,6 +467,7 @@
         private System.Windows.Forms.Label TodayBirthLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button RemoveButton;
+        private System.Windows.Forms.MaskedTextBox MaskedPhoneNumberTextBox;
     }
 }
 

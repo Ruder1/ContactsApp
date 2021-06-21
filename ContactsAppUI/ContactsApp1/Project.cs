@@ -14,14 +14,14 @@ namespace ContactsApp1
     {
 
         /// <summary>
-        /// Создает поле которое зранит список контактов
+        /// Создает поле которое хранит список контактов
         /// </summary>
         public List<Contact> ContactLists { get; set; } = new List<Contact>();
 
         /// <summary>
-        /// Поиск контактов у которых сегодня день рождение
+        /// Поиск контактов у которых сегодня день рождения
         /// </summary>
-        /// <returns>Возвращает список имен контактов</returns>
+        /// <returns>Возвращает список фамилий</returns>
         public List<string> SearchBirthdayContacts()
         {
             var birthdayContacts = new List<string>();
@@ -34,6 +34,44 @@ namespace ContactsApp1
                     }
                 }
                 return birthdayContacts;
+        }
+
+        /// <summary>
+        /// Метод выполняет сортировку списка контактов по фамилии
+        /// </summary>
+        /// <param name="contacts">Список контактов</param>
+        /// <returns></returns>
+        public List<Contact> SortProject()
+        {
+            List<Contact> sortedContacts = new List<Contact>();
+            var result = ContactLists.OrderBy(contact => contact.Surname);
+            foreach (var contact in result)
+            {
+                sortedContacts.Add(contact);
+            }
+
+            return sortedContacts;
+        }
+
+        /// <summary>
+        /// Метод выполняет сортировку списка контактов по подстроке, сортировка по фамилии и по имени.
+        /// </summary>
+        /// <param name="substring">Подстрока для сортировки</param>
+        /// <param name="contacts">Список контактов</param>
+        /// <returns></returns>
+        public List<Contact> SortProject(string substring)
+        {
+            List<Contact> sortedContacts = new List<Contact>();
+            var result = from contact in ContactLists
+                where contact.Surname.Contains(substring) || contact.Name.Contains(substring)
+                orderby contact.Surname, contact.Name
+                select contact;
+            foreach (var contact in result)
+            {
+                sortedContacts.Add(contact);
+            }
+
+            return sortedContacts;
         }
     }
 }

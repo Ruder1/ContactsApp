@@ -144,7 +144,7 @@ namespace ContactsAppUI
             this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
             this.DateOfBirthTimePicker.Size = new System.Drawing.Size(200, 20);
             this.DateOfBirthTimePicker.TabIndex = 20;
-            this.DateOfBirthTimePicker.Value = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
+            this.DateOfBirthTimePicker.Value = new System.DateTime(2021, 6, 21, 0, 0, 0, 0);
             // 
             // CancelButton
             // 
@@ -169,7 +169,7 @@ namespace ContactsAppUI
             // PhoneNumberTextBox
             // 
             this.PhoneNumberTextBox.Location = new System.Drawing.Point(93, 142);
-            this.PhoneNumberTextBox.Mask = "7(000)000-0000";
+            this.PhoneNumberTextBox.Mask = "7(000) 000-00 00";
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(282, 20);
             this.PhoneNumberTextBox.TabIndex = 23;
