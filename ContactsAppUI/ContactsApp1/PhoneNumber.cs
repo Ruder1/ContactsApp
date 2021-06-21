@@ -22,11 +22,13 @@ namespace ContactsApp1
         /// </summary>
         public string NumberPhone
         {
-            get { return _phoneNumber; }
+            get
+            {
+                return _phoneNumber;
+            }
 
             set
             {
-
                 foreach (var var in value)
                 {
 
@@ -45,6 +47,7 @@ namespace ContactsApp1
                 {
                     throw new ArgumentException("The country code must be 7");
                 }
+
                 _phoneNumber = value;
             }
         }

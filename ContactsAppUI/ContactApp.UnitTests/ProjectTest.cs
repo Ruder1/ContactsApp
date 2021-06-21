@@ -7,6 +7,7 @@ namespace ContactsApp.UnitTests
     [TestFixture]
     class ProjectTest
     {
+
         [TestCase(TestName = "Project getter positive test")]
         public void Project_CorrectValue_ReturnsSameValue()
         {

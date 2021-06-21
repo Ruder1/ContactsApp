@@ -45,7 +45,6 @@ namespace ContactsApp1
             JsonSerializer serializer = new JsonSerializer();
             using (StreamWriter streamWriter = new StreamWriter(filePath))
             using (JsonWriter writer = new JsonTextWriter(streamWriter))
-
             {
                 serializer.Serialize(writer, data);
             }
@@ -59,7 +58,6 @@ namespace ContactsApp1
         public static Project LoadFile(string filePath)
         {
             JsonSerializer serializer = new JsonSerializer();
-
             try
             {
                 Project project = null;
@@ -72,6 +70,7 @@ namespace ContactsApp1
                         project = new Project();
                     }
                 }
+
                 return project;
             }
             catch ( Exception exception)

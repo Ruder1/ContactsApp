@@ -103,7 +103,7 @@ namespace ContactsAppUI
             // SurnameTextBox
             // 
             this.SurnameTextBox.Location = new System.Drawing.Point(93, 12);
-            this.SurnameTextBox.MaxLength = 51;
+            this.SurnameTextBox.MaxLength = 50;
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.Size = new System.Drawing.Size(282, 20);
             this.SurnameTextBox.TabIndex = 14;
@@ -112,7 +112,7 @@ namespace ContactsAppUI
             // NameTextBox
             // 
             this.NameTextBox.Location = new System.Drawing.Point(93, 38);
-            this.NameTextBox.MaxLength = 51;
+            this.NameTextBox.MaxLength = 50;
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(282, 20);
             this.NameTextBox.TabIndex = 15;
@@ -121,7 +121,7 @@ namespace ContactsAppUI
             // EmailTextBox
             // 
             this.EmailTextBox.Location = new System.Drawing.Point(93, 90);
-            this.EmailTextBox.MaxLength = 51;
+            this.EmailTextBox.MaxLength = 50;
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(282, 20);
             this.EmailTextBox.TabIndex = 17;
@@ -130,7 +130,7 @@ namespace ContactsAppUI
             // IDVkTextBox
             // 
             this.IDVkTextBox.Location = new System.Drawing.Point(93, 116);
-            this.IDVkTextBox.MaxLength = 16;
+            this.IDVkTextBox.MaxLength = 15;
             this.IDVkTextBox.Name = "IDVkTextBox";
             this.IDVkTextBox.Size = new System.Drawing.Size(282, 20);
             this.IDVkTextBox.TabIndex = 18;

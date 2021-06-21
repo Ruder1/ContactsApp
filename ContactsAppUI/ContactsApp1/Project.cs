@@ -33,6 +33,7 @@ namespace ContactsApp1
                         birthdayContacts.Add(contact.Surname);
                     }
                 }
+
                 return birthdayContacts;
         }
 

@@ -7,6 +7,7 @@ namespace ContactsApp.UnitTests
     [TestFixture]
     public class ContactTest
     {
+
         [TestCase("", "An exception should be thrown if the surname is an empty string",
             TestName = "Assigning an empty string as a surname")]
         [TestCase("Smith-Smith-Smith-Smith-Smith-Smith-Smith-Smith-Smith-Smith", "There should be " +
@@ -184,7 +185,6 @@ namespace ContactsApp.UnitTests
         {
             //SetUp
             var expected = "id121212";
-            ;
             var contact = new Contact("Smith", "John", "79992223322",
                 new DateTime(2000, 01, 01), "fakemail@mail.ru",
                 expected);
@@ -275,7 +275,6 @@ namespace ContactsApp.UnitTests
                 Assert.AreEqual(expectedEmail, actualEmail, "The emails do not match");
                 Assert.AreEqual(expectedIdVk, actualIdVK, "The Idvk do not match");
             });
-
         }
     }
 }

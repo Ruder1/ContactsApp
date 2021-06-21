@@ -68,6 +68,7 @@ namespace ContactsAppUI
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
+
             catch (ArgumentException exception)
             {
                 DialogResult result = MessageBox.Show
@@ -87,6 +88,7 @@ namespace ContactsAppUI
                 Contact.Surname = SurnameTextBox.Text;
                 SurnameTextBox.BackColor = _correctBackColor;
             }
+
             catch (ArgumentException exception)
             {
                 SurnameTextBox.BackColor = _incorrectBackColor;
@@ -100,6 +102,7 @@ namespace ContactsAppUI
                 Contact.Name = NameTextBox.Text;
                 NameTextBox.BackColor = _correctBackColor;
             }
+
             catch (ArgumentException exception)
             {
                 NameTextBox.BackColor = _incorrectBackColor;
@@ -113,6 +116,7 @@ namespace ContactsAppUI
                 Contact.Email = EmailTextBox.Text;
                 EmailTextBox.BackColor = _correctBackColor;
             }
+
             catch (ArgumentException exception)
             {
                 EmailTextBox.BackColor = _incorrectBackColor;
@@ -126,6 +130,7 @@ namespace ContactsAppUI
                 Contact.IdVkontake = IDVkTextBox.Text;
                 IDVkTextBox.BackColor = _correctBackColor;
             }
+
             catch (ArgumentException exception)
             {
 

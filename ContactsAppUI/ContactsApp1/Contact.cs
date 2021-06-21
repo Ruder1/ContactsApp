@@ -42,7 +42,10 @@ namespace ContactsApp1
         /// </summary>
         public string Surname
         {
-            get { return _surname; }
+            get
+            {
+                return _surname;
+            }
 
             set
             {
@@ -80,7 +83,6 @@ namespace ContactsApp1
             set
             {
                 var date1 = new DateTime(1900, 01, 01);
-
                 if (value > DateTime.Today || value <= date1)
                 {
                     throw new ArgumentException(
@@ -140,7 +142,6 @@ namespace ContactsApp1
         /// <param name="idVkontakte">ID Вконтакте</param>
         public Contact(string surname, string name, string phoneNumber,
             DateTime dateOfBirth, string email, string idVkontakte)
-
         {
             Surname = surname;
             Name = name;
@@ -155,6 +156,9 @@ namespace ContactsApp1
         /// </summary>
         public PhoneNumber PhoneNumber = new PhoneNumber();
 
+        /// <summary>
+        /// Конуструктор для пустого класса контакта
+        /// </summary>
         public Contact()
         {
         }

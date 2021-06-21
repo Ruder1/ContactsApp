@@ -17,17 +17,17 @@ namespace ContactsApp.UnitTests
             Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"));
 
         /// <summary>
-        /// Поле хранит путь на корректный файл для тестов
+        /// Поле хранит путь к корректному файлу для тестов
         /// </summary>
         private static string _correctProjectFilename = _currentPath + @"TestData\correctcontactsdata.json";
 
         /// <summary>
-        /// Поле хранит путь на поврежденный файл
+        /// Поле хранит путь к поврежденному файлу
         /// </summary>
         private static string _uncorrectProjectFilename = _currentPath + @"TestData\uncorrectcontactsdata.json";
 
         /// <summary>
-        /// Поле хранит путь на файл для теста сериализации
+        /// Поле хранит путь к файлу для теста сериализации
         /// </summary>
         private static string _outputSaveFilename = _currentPath + @"OutData\filefromserialize.json";
 
@@ -46,7 +46,6 @@ namespace ContactsApp.UnitTests
             project.ContactLists.Add(contact);
             return project;
         }
-
 
         [TestCase(TestName = "Positive test deserialize")] 
         public void ProjectManager_LoadCorrectionData_FileSavedCorrectly()
@@ -69,7 +68,6 @@ namespace ContactsApp.UnitTests
 
                     Assert.AreEqual(expected, actual);
                 }
-
             });
         }
 
@@ -84,14 +82,13 @@ namespace ContactsApp.UnitTests
 
             //Assert
             Assert.AreEqual(excpectedProject.ContactLists.Count, actualProject.ContactLists.Count);
-
         }
 
         [TestCase(TestName = "Negative test deserialize, non-existent file ")]
         public void ProjectManager_LoadNonExistentFIle_RetursEmptyFile()
         {
+            //SetUp
             var expectedProject = new Project();
-
             var location = Assembly.GetExecutingAssembly().Location;
             var folder = Path.GetDirectoryName(location);
 
@@ -100,7 +97,6 @@ namespace ContactsApp.UnitTests
 
             //Assert
             Assert.AreEqual(expectedProject.ContactLists.Count, actualProject.ContactLists.Count);
-
         }
 
         [TestCase(TestName = "Positive test serialize")]

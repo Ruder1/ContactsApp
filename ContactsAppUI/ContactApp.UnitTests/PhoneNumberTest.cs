@@ -9,6 +9,7 @@ namespace ContactsApp.UnitTests
     [TestFixture]
     class PhoneNumberTest
     {
+
         [TestCase("fgsdgshdf", "If the phone number contains something other than" +
                                  " digits, an exception should be thrown",
             TestName = "Assigning a string with characters as a phone number")]

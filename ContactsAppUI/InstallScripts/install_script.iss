@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "ContactsApp"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.0.0"
 #define MyAppPublisher "Pogorelov Semyon"
 #define MyAppURL "https://github.com/Ruder1"
 #define MyAppExeName "ContactsAppUI.exe"
@@ -49,7 +49,7 @@ Source: "..\contactsapp.ico"; DestDir: "{app}";
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"; IconFilename: {app}\contactsapp.ico
-Name: "{group}\uninslall"; Filename: "{uninstallexe}"; IconFilename: {app}\contactsapp.ico
+Name: "{group}\uninstall"; Filename: "{uninstallexe}"; IconFilename: {app}\contactsapp.ico
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; IconFilename: {app}\contactsapp.ico
 
 [Run]

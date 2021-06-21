@@ -21,7 +21,7 @@ namespace ContactsAppUI
         private Project _project = new Project();
 
         /// <summary>
-        /// Контакты у которых день рождение
+        /// Контакты у которых день рождения
         /// </summary>
         private List<string> _birthdaySurnames= new List<string>();
 
@@ -29,6 +29,7 @@ namespace ContactsAppUI
         /// Список контактов хранит контакты после поиска
         /// </summary>
         private List<Contact> _viewingListContacts = new List<Contact>();
+
         public MainForm()
         {
             InitializeComponent();
@@ -50,6 +51,7 @@ namespace ContactsAppUI
             {
                 selectedData = _viewingListContacts[selectedIndex];
             }
+
             var editContact = new ContactForm { Contact = selectedData };
             editContact.ShowDialog();
             if (editContact.DialogResult == DialogResult.OK)
@@ -80,6 +82,7 @@ namespace ContactsAppUI
                 _project.ContactLists.Add(newContact);
                 ContactsListBox.Items.Add(newContact.Surname);
             }
+
             ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
         }
 
@@ -93,11 +96,13 @@ namespace ContactsAppUI
             {
                 return;
             }
+
             var selectedData = _project.ContactLists[selectedIndex];
             if (ContactsListBox.Items.Count != _project.ContactLists.Count)
             {
                 selectedData = _viewingListContacts[selectedIndex];
             }
+
             var result = MessageBox.Show("Do you really want to delete a contact: " +
                                          selectedData.Surname + "?",
                 "Deleting a сontact", MessageBoxButtons.OKCancel,
@@ -124,8 +129,9 @@ namespace ContactsAppUI
             EMailTextBox.Text = contact.Email;
             IdVkTextBox.Text = contact.IdVkontake;
         }
+
         /// <summary>
-        /// Функция поиска из списка контактов у которых сегодня день рождение
+        /// Функция поиска из списка контактов у которых сегодня день рождения
         /// </summary>
         private void SearchBirthdayContacts()
         {
@@ -136,6 +142,7 @@ namespace ContactsAppUI
                 string birthdayStringList = string.Join(", ", _birthdaySurnames);
                 TodayBirthLabel.Text = "Today they celebrate their birthday \n" + birthdayStringList;
             }
+
             else
             {
                 DateOfBirthPanel.Visible = false;
@@ -155,10 +162,8 @@ namespace ContactsAppUI
         /// </summary>
         private void SortSubstringFindProject()
         {
-         List<Contact> _viewingListContacts = new List<Contact>();
-        _viewingListContacts.Clear();
+            _viewingListContacts.Clear();
             _viewingListContacts = _project.SortProject(FindTextBox.Text);
-
             ContactsListBox.Items.Clear();
             for (int i = 0; i < _viewingListContacts.Count; i++)
             {
@@ -196,11 +201,13 @@ namespace ContactsAppUI
             {
                 return;
             }
+
             var contact = _project.ContactLists[selectedIndex];
             if (ContactsListBox.Items.Count != _project.ContactLists.Count)
             {
                 contact = _viewingListContacts[selectedIndex];
             }
+
             SurnameTextBox.Text = contact.Surname;
             NameTextBox.Text = contact.Name;
             MaskedPhoneNumberTextBox.Text = contact.PhoneNumber.NumberPhone;
@@ -224,6 +231,7 @@ namespace ContactsAppUI
         {
             AddContact();
             SortProject();
+            SortSubstringFindProject();
             FillContactsListBox();
             SearchBirthdayContacts();
         }
@@ -232,6 +240,7 @@ namespace ContactsAppUI
         {
             RemoveContact();
             SortProject();
+            SortSubstringFindProject();
             FillContactsListBox();
             SearchBirthdayContacts();
         }
@@ -240,6 +249,7 @@ namespace ContactsAppUI
         {
             AddContact();
             SortProject();
+            SortSubstringFindProject();
             FillContactsListBox();
             SearchBirthdayContacts();
         }
@@ -248,6 +258,7 @@ namespace ContactsAppUI
         {
             EditContact();
             SortProject();
+            SortSubstringFindProject();
             FillContactsListBox();
             SearchBirthdayContacts();
         }
@@ -256,6 +267,7 @@ namespace ContactsAppUI
         {
             RemoveContact();
             SortProject();
+            SortSubstringFindProject();
             FillContactsListBox();
             SearchBirthdayContacts();
         }
@@ -270,6 +282,7 @@ namespace ContactsAppUI
         {
             EditContact();
             SortProject();
+            SortSubstringFindProject();
             FillContactsListBox();
             SearchBirthdayContacts();
         }
