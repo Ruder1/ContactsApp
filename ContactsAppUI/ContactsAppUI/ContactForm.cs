@@ -7,7 +7,6 @@ namespace ContactsAppUI
 {
     public partial class ContactForm : Form
     {
-
         /// <summary>
         /// Создает поле контакт
         /// </summary>

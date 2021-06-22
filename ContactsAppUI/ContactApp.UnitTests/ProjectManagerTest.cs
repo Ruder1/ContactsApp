@@ -11,25 +11,19 @@ namespace ContactsApp.UnitTests
     class ProjectManagerTest
     {
         /// <summary>
-        /// Путь к директории с тестовыми файлами
-        /// </summary>
-        private static string _currentPath =
-            Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"));
-
-        /// <summary>
         /// Поле хранит путь к корректному файлу для тестов
         /// </summary>
-        private static string _correctProjectFilename = _currentPath + @"TestData\correctcontactsdata.json";
+        private static string _correctProjectFilename =  @"TestData\correctcontactsdata.json";
 
         /// <summary>
         /// Поле хранит путь к поврежденному файлу
         /// </summary>
-        private static string _uncorrectProjectFilename = _currentPath + @"TestData\uncorrectcontactsdata.json";
+        private static string _uncorrectProjectFilename =  @"TestData\uncorrectcontactsdata.json";
 
         /// <summary>
         /// Поле хранит путь к файлу для теста сериализации
         /// </summary>
-        private static string _outputSaveFilename = _currentPath + @"OutData\filefromserialize.json";
+        private static string _outputSaveFilename =  @"OutData\filefromserialize.json";
 
         /// <summary>
         /// Метод заполняет project двумя контактами
@@ -40,10 +34,10 @@ namespace ContactsApp.UnitTests
         {
             var contact = new Contact("Petrov", "Ivan", "71234567899",
                 new DateTime(2010, 02, 02), "mail@mail.ru", "id999999");
-            project.ContactLists.Add(contact);
+            project.Contacts.Add(contact);
             contact = new Contact("Smirnov", "Vlad", "79876543211",
                 new DateTime(2000, 12, 12), "gmail@gmail.com", "id444444");
-            project.ContactLists.Add(contact);
+            project.Contacts.Add(contact);
             return project;
         }
 
@@ -58,13 +52,13 @@ namespace ContactsApp.UnitTests
             var actualProject = ProjectManager.LoadFile(_correctProjectFilename);
 
             //Assert
-            Assert.AreEqual(expectedProject.ContactLists.Count, actualProject.ContactLists.Count);
+            Assert.AreEqual(expectedProject.Contacts.Count, actualProject.Contacts.Count);
             Assert.Multiple(() =>
             {
-                for (int i = 0; i < expectedProject.ContactLists.Count; i++)
+                for (int i = 0; i < expectedProject.Contacts.Count; i++)
                 {
-                    var expected = expectedProject.ContactLists[i];
-                    var actual = actualProject.ContactLists[i];
+                    var expected = expectedProject.Contacts[i];
+                    var actual = actualProject.Contacts[i];
 
                     Assert.AreEqual(expected, actual);
                 }
@@ -81,7 +75,7 @@ namespace ContactsApp.UnitTests
             var actualProject = ProjectManager.LoadFile(_uncorrectProjectFilename);
 
             //Assert
-            Assert.AreEqual(excpectedProject.ContactLists.Count, actualProject.ContactLists.Count);
+            Assert.AreEqual(excpectedProject.Contacts.Count, actualProject.Contacts.Count);
         }
 
         [TestCase(TestName = "Negative test deserialize, non-existent file ")]
@@ -96,7 +90,7 @@ namespace ContactsApp.UnitTests
             var actualProject = ProjectManager.LoadFile($@"{folder}\TestData\nonexistent.json");
 
             //Assert
-            Assert.AreEqual(expectedProject.ContactLists.Count, actualProject.ContactLists.Count);
+            Assert.AreEqual(expectedProject.Contacts.Count, actualProject.Contacts.Count);
         }
 
         [TestCase(TestName = "Positive test serialize")]

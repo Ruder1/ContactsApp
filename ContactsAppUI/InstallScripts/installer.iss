@@ -7,8 +7,6 @@
 #define MyAppURL "https://github.com/Ruder1"
 #define MyAppExeName "ContactsAppUI.exe"
 #define MyAppAssocName MyAppName + " File"
-#define MyAppAssocExt ".myp"
-#define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -29,7 +27,7 @@ DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputBaseFilename=ContatsAppSetup
+OutputBaseFilename=ContactsAppSetup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern

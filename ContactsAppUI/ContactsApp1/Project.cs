@@ -16,7 +16,7 @@ namespace ContactsApp1
         /// <summary>
         /// Создает поле которое хранит список контактов
         /// </summary>
-        public List<Contact> ContactLists { get; set; } = new List<Contact>();
+        public List<Contact> Contacts { get; set; } = new List<Contact>();
 
         /// <summary>
         /// Поиск контактов у которых сегодня день рождения
@@ -25,7 +25,7 @@ namespace ContactsApp1
         public List<string> SearchBirthdayContacts()
         {
             var birthdayContacts = new List<string>();
-                foreach(var contact in ContactLists)
+                foreach(var contact in Contacts)
                 {
                     if (contact.DateOfBirth.Month == DateTime.Today.Month &&
                         contact.DateOfBirth.Day == DateTime.Today.Day)
@@ -45,7 +45,7 @@ namespace ContactsApp1
         public List<Contact> SortProject()
         {
             List<Contact> sortedContacts = new List<Contact>();
-            var result = ContactLists.OrderBy(contact => contact.Surname);
+            var result = Contacts.OrderBy(contact => contact.Surname);
             foreach (var contact in result)
             {
                 sortedContacts.Add(contact);
@@ -63,7 +63,7 @@ namespace ContactsApp1
         public List<Contact> SortProject(string substring)
         {
             List<Contact> sortedContacts = new List<Contact>();
-            var result = from contact in ContactLists
+            var result = from contact in Contacts
                 where contact.Surname.Contains(substring) || contact.Name.Contains(substring)
                 orderby contact.Surname, contact.Name
                 select contact;
