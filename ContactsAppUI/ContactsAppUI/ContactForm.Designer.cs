@@ -143,7 +143,7 @@ namespace ContactsAppUI
             this.DateOfBirthTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
             this.DateOfBirthTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.DateOfBirthTimePicker.TabIndex = 20;
+            this.DateOfBirthTimePicker.TabIndex = 16;
             this.DateOfBirthTimePicker.Value = new System.DateTime(2021, 6, 21, 0, 0, 0, 0);
             // 
             // CancelButton
@@ -161,7 +161,7 @@ namespace ContactsAppUI
             this.OKButton.Location = new System.Drawing.Point(219, 177);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
-            this.OKButton.TabIndex = 22;
+            this.OKButton.TabIndex = 20;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
@@ -172,7 +172,7 @@ namespace ContactsAppUI
             this.PhoneNumberTextBox.Mask = "7(000) 000-00 00";
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(282, 20);
-            this.PhoneNumberTextBox.TabIndex = 23;
+            this.PhoneNumberTextBox.TabIndex = 19;
             // 
             // ContactForm
             // 

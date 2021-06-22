@@ -140,7 +140,7 @@
             this.FindTextBox.MaximumSize = new System.Drawing.Size(800, 20);
             this.FindTextBox.Name = "FindTextBox";
             this.FindTextBox.Size = new System.Drawing.Size(143, 20);
-            this.FindTextBox.TabIndex = 13;
+            this.FindTextBox.TabIndex = 11;
             this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
             // 
             // SurnameTextBox
@@ -171,7 +171,7 @@
             this.EMailTextBox.Name = "EMailTextBox";
             this.EMailTextBox.ReadOnly = true;
             this.EMailTextBox.Size = new System.Drawing.Size(218, 20);
-            this.EMailTextBox.TabIndex = 17;
+            this.EMailTextBox.TabIndex = 18;
             // 
             // IdVkTextBox
             // 
@@ -181,7 +181,7 @@
             this.IdVkTextBox.Name = "IdVkTextBox";
             this.IdVkTextBox.ReadOnly = true;
             this.IdVkTextBox.Size = new System.Drawing.Size(218, 20);
-            this.IdVkTextBox.TabIndex = 18;
+            this.IdVkTextBox.TabIndex = 19;
             // 
             // DateOfBirthTimePicker
             // 
@@ -193,7 +193,7 @@
             this.DateOfBirthTimePicker.MinDate = new System.DateTime(1901, 1, 1, 0, 0, 0, 0);
             this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
             this.DateOfBirthTimePicker.Size = new System.Drawing.Size(141, 20);
-            this.DateOfBirthTimePicker.TabIndex = 20;
+            this.DateOfBirthTimePicker.TabIndex = 17;
             // 
             // ContactsListBox
             // 
@@ -207,7 +207,7 @@
             this.ContactsListBox.MinimumSize = new System.Drawing.Size(100, 100);
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(176, 357);
-            this.ContactsListBox.TabIndex = 11;
+            this.ContactsListBox.TabIndex = 13;
             this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
             // menuStrip1
@@ -234,7 +234,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -282,7 +282,7 @@
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem1_Click);
             // 
@@ -359,7 +359,7 @@
             this.EditButton.Location = new System.Drawing.Point(33, 3);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(20, 20);
-            this.EditButton.TabIndex = 24;
+            this.EditButton.TabIndex = 10;
             this.EditButton.UseVisualStyleBackColor = true;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
@@ -371,7 +371,7 @@
             this.RemoveButton.Location = new System.Drawing.Point(63, 3);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(20, 20);
-            this.RemoveButton.TabIndex = 10;
+            this.RemoveButton.TabIndex = 11;
             this.RemoveButton.UseVisualStyleBackColor = true;
             this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
@@ -384,7 +384,7 @@
             this.MaskedPhoneNumberTextBox.Name = "MaskedPhoneNumberTextBox";
             this.MaskedPhoneNumberTextBox.ReadOnly = true;
             this.MaskedPhoneNumberTextBox.Size = new System.Drawing.Size(218, 20);
-            this.MaskedPhoneNumberTextBox.TabIndex = 24;
+            this.MaskedPhoneNumberTextBox.TabIndex = 20;
             // 
             // DateOfBirthPanel
             // 
