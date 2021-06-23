@@ -2,7 +2,7 @@
 using ContactsApp1;
 using NUnit.Framework;
 
-namespace ContactsApp.UnitTests
+namespace ContactApp.UnitTests
 {
     [TestFixture]
     class ProjectTest
@@ -27,8 +27,8 @@ namespace ContactsApp.UnitTests
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(expectedContacts.Contacts.Count, actualContacts.Contacts.Count,
-                    "The surnames do not match");
-                //Assert.AreEqual(expectedContacts.Contacts.Capacity, expectedContacts.Contacts.Capacity != 0, "Expected contacts not null");
+                    "Counts of contacts do not match");
+                Assert.AreEqual(expectedContacts.Contacts,actualContacts.Contacts,"Contacts is null");
                
             });
         }

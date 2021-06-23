@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using ContactsApp1;
 using NUnit.Framework;
 
-namespace ContactsApp.UnitTests
+namespace ContactApp.UnitTests
 {
     [TestFixture]
     class PhoneNumberTest

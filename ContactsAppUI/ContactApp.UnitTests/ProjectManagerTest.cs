@@ -1,11 +1,10 @@
 ﻿using System;
-using NUnit.Framework;
 using System.IO;
 using System.Reflection;
 using ContactsApp1;
+using NUnit.Framework;
 
-
-namespace ContactsApp.UnitTests
+namespace ContactApp.UnitTests
 {
     [TestFixture]
     class ProjectManagerTest

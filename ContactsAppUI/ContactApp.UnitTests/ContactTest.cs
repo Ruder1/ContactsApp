@@ -2,7 +2,7 @@
 using ContactsApp1;
 using NUnit.Framework;
 
-namespace ContactsApp.UnitTests
+namespace ContactApp.UnitTests
 {
     [TestFixture]
     public class ContactTest
@@ -108,7 +108,7 @@ namespace ContactsApp.UnitTests
         [TestCase("2048.12.12",
             "An exception should be thrown if Birthday later today",
             TestName = "Assigning Birthday later today")]
-        public void TestBirthdaySet_ArgumentException(DateTime wrongBirthday, string message)
+        public void TestDateOfBirthSet_ArgumentException(DateTime wrongBirthday, string message)
         {
             //SetUp
             var contact = new Contact();
@@ -121,7 +121,7 @@ namespace ContactsApp.UnitTests
 
         [TestCase("2000.01.01",
             TestName = "Assigning the correct Birthday")]
-        public void Birthday_CorrectValue_SetSameValue(DateTime expected)
+        public void DateOfBirth_CorrectValue_SetSameValue(DateTime expected)
         {
             //SetUp
             var contact = new Contact();
@@ -135,7 +135,7 @@ namespace ContactsApp.UnitTests
         }
 
         [TestCase(TestName = "Birthday getter positive test")]
-        public void Birthday_CorrectValue_ReturnsSameValue()
+        public void DateOfBirth_CorrectValue_ReturnsSameValue()
         {
             //SetUp
             var expected = new DateTime(2000, 01, 01);
@@ -154,7 +154,7 @@ namespace ContactsApp.UnitTests
         [TestCase("fakeidvkfakeidvkfakeidvkfakeidvkfakeidvk",
             "There should be exception if the IdVK is longer than 15 letters",
             TestName = "Assigning an incorrect IdVK more than 15 characters")]
-        public void TestIdVklSet_ArgumentException(string wrongIdVk, string message)
+        public void TestIdVkontaktelSet_ArgumentException(string wrongIdVk, string message)
         {
             //SetUp
             var contact = new Contact();
@@ -167,7 +167,7 @@ namespace ContactsApp.UnitTests
 
         [TestCase("id121212",
             TestName = "Assigning the correct email")]
-        public void IdVk_CorrectValue_SetSameValue(string expected)
+        public void IdVkontakte_CorrectValue_SetSameValue(string expected)
         {
             //SetUp
             var contact = new Contact();
@@ -181,7 +181,7 @@ namespace ContactsApp.UnitTests
         }
 
         [TestCase(TestName = "IdVk getter positive test")]
-        public void IdVk_CorrectValue_ReturnsSameValue()
+        public void IdVkontakte_CorrectValue_ReturnsSameValue()
         {
             //SetUp
             var expected = "id121212";
