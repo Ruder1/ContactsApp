@@ -65,7 +65,7 @@ namespace ContactsApp1
                 using (JsonReader reader = new JsonTextReader(streamReader))
                 {
                     project = serializer.Deserialize<Project>(reader);
-                    if (project.ContactLists.Capacity == 0)
+                    if (project.Contacts.Capacity == 0)
                     {
                         project = new Project();
                     }

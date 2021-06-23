@@ -46,8 +46,8 @@ namespace ContactsAppUI
                 return;
             }
 
-            var selectedData = _project.ContactLists[selectedIndex];
-            if (ContactsListBox.Items.Count != _project.ContactLists.Count)
+            var selectedData = _project.Contacts[selectedIndex];
+            if (ContactsListBox.Items.Count != _project.Contacts.Count)
             {
                 selectedData = _viewingListContacts[selectedIndex];
             }
@@ -60,9 +60,9 @@ namespace ContactsAppUI
             }
 
             var updatedContact = editContact.Contact;
-            var updatedContactIndex = _project.ContactLists.IndexOf(selectedData);
-            _project.ContactLists.RemoveAt(updatedContactIndex);
-            _project.ContactLists.Insert(updatedContactIndex, updatedContact);
+            var updatedContactIndex = _project.Contacts.IndexOf(selectedData);
+            _project.Contacts.RemoveAt(updatedContactIndex);
+            _project.Contacts.Insert(updatedContactIndex, updatedContact);
 
             ContactsListBox.Items.RemoveAt(selectedIndex);
             ContactsListBox.Items.Insert(selectedIndex, updatedContact.Surname); ;
@@ -71,7 +71,7 @@ namespace ContactsAppUI
             UpdateTextBoxes(updatedContactIndex);
             SortProject();
             SortSubstringFindProject();
-            updatedContactIndex = _project.ContactLists.IndexOf(updatedContact);
+            updatedContactIndex = _project.Contacts.IndexOf(updatedContact);
             ContactsListBox.SelectedIndex = updatedContactIndex;
             SearchBirthdayContacts();
         }
@@ -86,7 +86,7 @@ namespace ContactsAppUI
             if (contactForm.DialogResult == DialogResult.OK)
             {
                 var newContact = contactForm.Contact;
-                _project.ContactLists.Add(newContact);
+                _project.Contacts.Add(newContact);
                 ContactsListBox.Items.Add(newContact.Surname);
             }
 
@@ -107,8 +107,8 @@ namespace ContactsAppUI
                 return;
             }
 
-            var selectedData = _project.ContactLists[selectedIndex];
-            if (ContactsListBox.Items.Count != _project.ContactLists.Count)
+            var selectedData = _project.Contacts[selectedIndex];
+            if (ContactsListBox.Items.Count != _project.Contacts.Count)
             {
                 selectedData = _viewingListContacts[selectedIndex];
             }
@@ -137,7 +137,7 @@ namespace ContactsAppUI
         /// <param name="index"></param>
         private void UpdateTextBoxes(int index)
         {
-            var contact = _project.ContactLists[index];
+            var contact = _project.Contacts[index];
             SurnameTextBox.Text = contact.Surname;
             NameTextBox.Text = contact.Name;
             MaskedPhoneNumberTextBox.Text = contact.PhoneNumber.NumberPhone;
@@ -170,7 +170,8 @@ namespace ContactsAppUI
         /// </summary>
         private void SortProject()
         {
-            _project.ContactLists = _project.SortProject();
+            _project.Contacts = _project.SortProject();
+            FillContactsListBox(_project.Contacts);
         }
 
         /// <summary>
@@ -181,33 +182,36 @@ namespace ContactsAppUI
             _viewingListContacts.Clear();
             _viewingListContacts = _project.SortProject(FindTextBox.Text);
             ContactsListBox.Items.Clear();
+            if (FindTextBox.Text == "")
+            {
+                SortProject();
+                return;
+            }
             for (int i = 0; i < _viewingListContacts.Count; i++)
             {
                 ContactsListBox.Items.Add(_viewingListContacts[i].Surname);
             }
-            FillContactsListBox();
-
+            FillContactsListBox(_viewingListContacts);
         }
 
         /// <summary>
         /// Метод заполняет ContactsListBox контактами
         /// </summary>
-        private void FillContactsListBox()
+        private void FillContactsListBox(List<Contact> contact)
         {
             ContactsListBox.Items.Clear();
-            foreach (var contact in _project.ContactLists)
+            for (int i =0;i<contact.Count;i++)
             {
-                ContactsListBox.Items.Add(contact.Surname);
+                ContactsListBox.Items.Add(contact[i].Surname);
             }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _project.ContactLists.Clear();
+            _project.Contacts.Clear();
             ContactsListBox.Items.Clear();
             _project = ProjectManager.LoadFile(ProjectManager.DefaultPath);
             SortProject();
-            FillContactsListBox();
             SearchBirthdayContacts();
         }
 
@@ -219,8 +223,8 @@ namespace ContactsAppUI
                 return;
             }
 
-            var contact = _project.ContactLists[selectedIndex];
-            if (ContactsListBox.Items.Count != _project.ContactLists.Count)
+            var contact = _project.Contacts[selectedIndex];
+            if (ContactsListBox.Items.Count != _project.Contacts.Count)
             {
                 contact = _viewingListContacts[selectedIndex];
             }
