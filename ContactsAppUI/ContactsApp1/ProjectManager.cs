@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 
@@ -22,17 +18,15 @@ namespace ContactsApp1
             get
             {
                 var appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var path = appDataFolder + @"\ContactsApp\contact.json";
+                var path = appDataFolder + @"\Pogorelov\ContactsApp\contact.json";
                 return path;
             }
         }
-
 
         /// <summary>
         /// преобразования какого-либо объекта в поток байтов
         /// </summary>
         /// <param name="data">Данные контактов</param>
-
         /// <param name="filePath">Расположение файла</param>
         public static void SaveToFile(Project data, string filePath)
         {
@@ -46,7 +40,6 @@ namespace ContactsApp1
             JsonSerializer serializer = new JsonSerializer();
             using (StreamWriter streamWriter = new StreamWriter(filePath))
             using (JsonWriter writer = new JsonTextWriter(streamWriter))
-
             {
                 serializer.Serialize(writer, data);
             }
@@ -59,20 +52,21 @@ namespace ContactsApp1
         /// <returns> Возвращает переменную содеражащую данные Contact</returns>
         public static Project LoadFile(string filePath)
         {
-            Project project = null;
             JsonSerializer serializer = new JsonSerializer();
-
             try
             {
+                Project project = null;
                 using (StreamReader streamReader = new StreamReader(filePath))
                 using (JsonReader reader = new JsonTextReader(streamReader))
                 {
-                    project = (Project)serializer.Deserialize<Project>(reader);
-                    if (project.ContactLists.Capacity == 0)
+                    project = serializer.Deserialize<Project>(reader);
+                    if (project.Contacts.Capacity == 0)
                     {
                         project = new Project();
                     }
                 }
+
+
                 return project;
             }
             catch ( Exception exception)
@@ -80,6 +74,5 @@ namespace ContactsApp1
                 return new Project();
             }
         }
-
     }
 }
