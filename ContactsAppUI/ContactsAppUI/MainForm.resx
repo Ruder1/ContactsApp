@@ -121,6 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+
   <data name="AddButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -303,6 +304,7 @@
         1vf1YOAcaciTZVBWXQMwenpEnH1paVL6pG2FC34yFb1TW1vbVT32BjWXzGZxS3Ba2XPLoko+Gb05b/V/
         LE/Kf3xO3NF7vaMFRW2WBTIGpodHhLjH2yiG+MYee21FSsEXm3I3ztqRP2FrevmLorEX9NsMGQz/D6PB
         tyKCjWCEAAAAAElFTkSuQmCC
+
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -381,4 +383,5 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+
 </root>

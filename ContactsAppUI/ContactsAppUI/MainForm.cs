@@ -7,11 +7,11 @@ namespace ContactsAppUI
 {
     public partial class MainForm : Form
     {
-
         /// <summary>
         /// Список контактов
         /// </summary>
         private Project _project = new Project();
+
 
         /// <summary>
         /// Контакты у которых день рождения
@@ -23,10 +23,13 @@ namespace ContactsAppUI
         /// </summary>
         private List<Contact> _viewingListContacts = new List<Contact>();
 
+
         public MainForm()
         {
+            //1
             InitializeComponent();
         }
+
 
         /// <summary>
         /// Функция редактирования контакта
@@ -254,6 +257,7 @@ namespace ContactsAppUI
         private void AddContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddContact();
+
         }
 
         private void EditContactToolStripMenuItem_Click(object sender, EventArgs e)

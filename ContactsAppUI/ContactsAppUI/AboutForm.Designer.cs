@@ -125,6 +125,7 @@ namespace ContactsAppUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
+
             this.ClientSize = new System.Drawing.Size(484, 361);
             this.Controls.Add(this.GithubLinkLabel);
             this.Controls.Add(this.EmailLinkLabel);

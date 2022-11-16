@@ -79,11 +79,13 @@ namespace ContactsApp1
             set
             {
                 var date1 = new DateTime(1900, 01, 01);
+
+
                 if (value > DateTime.Today || value <= date1)
                 {
                     throw new ArgumentException(
-                        $"The date of birth must not be earlier than 01.01.1900 or later than " +
-                        $"today: -{DateTime.Today}");
+                        $"Дата рождения не должна быть раньше 01.01.1900 и позже " +
+                        $"сегодня: -{DateTime.Today}");
                 }
 
                 _dateOfBirth = value;
@@ -135,9 +137,10 @@ namespace ContactsApp1
         /// <param name="phoneNumber">Номер телефона</param>
         /// <param name="dateOfBirth">Дата рождения</param>
         /// <param name="email">Эл Почта</param>
-        /// <param name="idVkontakte">ID Вконтакте</param>
+        /// <param name="idVkontake">ID Вконтакте</param>
         public Contact(string surname, string name, string phoneNumber,
             DateTime dateOfBirth, string email, string idVkontakte)
+
         {
             Surname = surname;
             Name = name;
@@ -146,6 +149,9 @@ namespace ContactsApp1
             Email = email;
             IdVkontake = idVkontakte;
         }
+        /// <summary>
+        /// Чтение и запись номера телефона
+        /// </summary>
 
         /// <summary>
         /// Чтение и запись номера телефона

@@ -10,7 +10,6 @@ namespace ContactsApp1
     /// </summary>
     public class Project
     {
-
         /// <summary>
         /// Создает поле которое хранит список контактов
         /// </summary>
@@ -69,6 +68,7 @@ namespace ContactsApp1
             {
                 sortedContacts.Add(contact);
             }
+
 
             return sortedContacts;
         }
